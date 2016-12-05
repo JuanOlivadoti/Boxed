@@ -30,7 +30,7 @@ header{
 	width:100%;
 	border-bottom: 1px solid #000;
 	height:60px;
-	background-color: rgba(255,255,0,1);
+	background-color: rgba(0,0,0,1);
 	box-shadow: 0px 2px 2px #000;
 	position: fixed;
 	z-index: 1000;
@@ -49,7 +49,7 @@ header{
 			a{
 				text-decoration: none;
 				color: #f00;
-				text-shadow: 3px 3px 0 #000;
+				text-shadow: 3px 3px 0 #666;
 			}
 		}
 
@@ -57,11 +57,11 @@ header{
 			width:70%;
 			float: right;
 			a{
-				color: #000;
+				color: #fff;
 			}
 
 			a:hover{
-				color: #000;
+				color: #fff;
 				font-weight: bolder;
 			}
 
@@ -85,27 +85,69 @@ header{
 
 .container{
 	width:100%;
-	height: 100%;
+	margin-left:auto;
+	margin-right:auto;
 }
 .relative{
 	position: relative;
 }
 
+.center-block{
+	float: none;
+}
+
 img.lp-front-img{
 	width:100%;
+	filter: grayscale(100%);
 }
 
 .motivation{
-	font-family: 'Special Elite', cursive;
-	font-size: 70px;
 	text-align: center;
 	position: absolute;
 	top:200px;
 	color: #fff;
-	text-shadow: 5px 5px 0 #000;
+	text-shadow: 0px 0px 10px #000;
+	background-image: linear-gradient(rgba(191,26,16,.75),rgba(191,26,16,.75));
+
+
+	h4{
+	font-family: 'Special Elite', cursive;
+	font-size: 65px;
+	margin-bottom: 0px;
+	}
+
+	p{
+		font-family: 'Abel', sans-serif;
+		font-size:55px;
+		margin-top: 0px;
+		font-weight: lighter;
+	}
 }
 
+#session{
+	padding-top:80px;
+	width:60%;
+	margin-left: auto;
+	margin-bottom:200px;
+}
 
-#lp-front{
+footer{
+	width:100%;
+	height:60px;
+	background-color: rgba(0,0,0,1);
+	z-index: 1000;
 	
+	p{
+		margin:0;
+		padding:15px;
+
+		a{
+			color: #fff;
+		}
+
+		a:hover{
+			color: #fff;
+			font-weight: bolder;
+		}
+	}
 }
