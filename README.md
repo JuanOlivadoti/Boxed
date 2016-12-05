@@ -11,13 +11,13 @@
 
 <h4>ATTRIBUTES</h4>
 <ul>
-	<li>id : integer</li>
-	<li>name : string</li>
-	<li>email : DEVISE</li>
-	<li>password : DEVISE</li>
-	<li>dni : string</li>
-	<li>bday : date</li>
-	<li>medcert : date</li>
+	<li>id : integer</li> *
+	<li>name : string</li> *
+	<li>email : DEVISE</li> *
+	<li>password : DEVISE</li> *
+	<li>dni : string</li> *
+	<li>bday : date</li> *
+	<li>medcert : date</li> *
 	<li>user_type: ENUM</li>
 </ul>
 
