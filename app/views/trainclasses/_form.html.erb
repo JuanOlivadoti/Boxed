@@ -1,0 +1,42 @@
+<%= form_for(trainclass) do |f| %>
+  <% if trainclass.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trainclass.errors.count, "error") %> prohibited this trainclass from being saved:</h2>
+
+      <ul>
+      <% trainclass.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_quota %>
+    <%= f.number_field :max_quota, within: 1..15 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :train_class_type %>
+    <%= f.select :train_class_type, Trainclass.train_class_types.keys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :coach_id %>
+    <%= f.number_field :coach_id, within: 1..5 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

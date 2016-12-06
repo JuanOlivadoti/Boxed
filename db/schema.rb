@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205174437) do
+ActiveRecord::Schema.define(version: 20161206124445) do
+
+  create_table "trainclasses", force: :cascade do |t|
+    t.date     "date"
+    t.time     "time"
+    t.integer  "max_quota"
+    t.integer  "train_class_type"
+    t.integer  "coach_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "quota"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
