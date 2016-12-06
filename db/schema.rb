@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206124445) do
+ActiveRecord::Schema.define(version: 20161206145334) do
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "trainclass_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "trainclasses", force: :cascade do |t|
     t.date     "date"
     t.time     "time"
-    t.integer  "max_quota"
+    t.integer  "capacity"
     t.integer  "train_class_type"
     t.integer  "coach_id"
     t.datetime "created_at",       null: false

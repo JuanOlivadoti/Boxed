@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  resources :trainclasses
-  get 'static_pages/home'
 
-  get 'static_pages/help'
-
+	root 'static_pages#home'
+  
   devise_for :users, controllers: {
         sessions: 'users/sessions'}
 
-  root 'static_pages#home'
+  resources :users do
+  	resources :bookings
+  end
+  
+  resources :trainclasses
+  
+  get 'static_pages/home'
+  get 'static_pages/help'
+
 end

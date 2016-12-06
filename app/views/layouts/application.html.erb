@@ -11,16 +11,16 @@
   <body>
 		<header class="navbar" role="navigation">
 		    <div class="navbar-inner">
-		      <div id="logo" class="navbar-brand"><%= link_to "BOXED", root_path %></div>
-		        <nav class="collapse navbar-collapse navbar-ex1-collapse">
+		      <div id="logo"><%= link_to "BOXED", root_path %></div>
+		        <nav >
 		        <!-- USER SIGNED IN -->
 		          <% if user_signed_in? -%>
-		            <ul class="nav navbar-nav navbar-right">
+		            <ul>
 		              <li><%= link_to 'Account', edit_user_registration_path %></li>
 		              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
 		            </ul>
 		          <% else -%>
-		            <ul class="nav navbar-nav pull-right">
+		            <ul>
 		              <li><%= link_to 'Sign up', new_user_registration_path %></li>
 		              <li><%= link_to 'Sign in', new_user_session_path %></li>
 		            </ul>
@@ -32,7 +32,15 @@
     <%= yield %>
 
   	<footer>
-    	<p><%= link_to 'Admin login', new_user_session_path %></p>
+      <% if user_signed_in? -%>
+        <ul">
+          <li><%= link_to 'Account', edit_user_registration_path %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+        </ul>
+      <% else -%>
+	    	<p><%= link_to 'Admin login', new_user_session_path %></p>
+      <% end -%>
+
 		</footer>
   </body>
 </html>

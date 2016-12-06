@@ -9,3 +9,25 @@ table{
 	width:80%;
 	margin:auto;
 }
+
+footer{
+	li{
+		display: inline-block;
+		padding-left:50px;
+		padding-top:15px;
+
+		a{
+			text-decoration: none;
+			color:#fff;
+			text-shadow: 2px 2px 2px #999;
+			font-weight: bolder;
+			position:relative;
+		}
+		a:hover{
+			font-weight: thin;
+			text-shadow: none;
+			left: 2px;
+			top:2px;
+		}
+	}
+}
