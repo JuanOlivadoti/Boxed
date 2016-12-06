@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-12-06
+  time: 2016-12-06 11:53:43
+  max_quota: 1
+  train_class_type: 1
+  coach_id: 1
+
+two:
+  date: 2016-12-06
+  time: 2016-12-06 11:53:43
+  max_quota: 1
+  train_class_type: 1
+  coach_id: 1

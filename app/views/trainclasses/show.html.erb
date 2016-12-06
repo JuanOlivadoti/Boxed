@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @trainclass.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @trainclass.time %>
+</p>
+
+<p>
+  <strong>Max quota:</strong>
+  <%= @trainclass.max_quota %>
+</p>
+
+<p>
+  <strong>Train class type:</strong>
+  <%= @trainclass.train_class_type %>
+</p>
+
+<p>
+  <strong>Coach:</strong>
+  <%= @trainclass.coach_id %>
+</p>
+
+<%= link_to 'Edit', edit_trainclass_path(@trainclass) %> |
+<%= link_to 'Back', trainclasses_path %>
