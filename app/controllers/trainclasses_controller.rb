@@ -69,6 +69,6 @@ class TrainclassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainclass_params
-      params.require(:trainclass).permit(:date, :time, :max_quota, :train_class_type, :coach_id)
+      params.require(:trainclass).permit(:date, :time, :capacity, :train_class_type, :coach_id)
     end
 end
