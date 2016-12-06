@@ -23,17 +23,17 @@
 
   <div class="field">
     <%= f.label :max_quota %>
-    <%= f.number_field :max_quota %>
+    <%= f.number_field :max_quota, within: 1..15 %>
   </div>
 
   <div class="field">
     <%= f.label :train_class_type %>
-    <%= f.number_field :train_class_type %>
+    <%= f.select :train_class_type, Trainclass.train_class_types.keys %>
   </div>
 
   <div class="field">
     <%= f.label :coach_id %>
-    <%= f.number_field :coach_id %>
+    <%= f.number_field :coach_id, within: 1..5 %>
   </div>
 
   <div class="actions">

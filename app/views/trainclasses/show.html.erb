@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<section class="container trainclass">
 
-<p>
-  <strong>Date:</strong>
-  <%= @trainclass.date %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @trainclass.time %>
-</p>
+  <p>
+    <strong>Date:</strong>
+    <%= @trainclass.date %>
+  </p>
 
-<p>
-  <strong>Max quota:</strong>
-  <%= @trainclass.max_quota %>
-</p>
+  <p>
+    <strong>Time:</strong>
+    <%= @trainclass.time.to_s(:time) %>
+  </p>
 
-<p>
-  <strong>Train class type:</strong>
-  <%= @trainclass.train_class_type %>
-</p>
+  <p>
+    <strong>Max quota:</strong>
+    <%= @trainclass.max_quota %>
+  </p>
 
-<p>
-  <strong>Coach:</strong>
-  <%= @trainclass.coach_id %>
-</p>
+  <p>
+    <strong>Train class type:</strong>
+    <%= @trainclass.train_class_type %>
+  </p>
 
-<%= link_to 'Edit', edit_trainclass_path(@trainclass) %> |
-<%= link_to 'Back', trainclasses_path %>
+  <p>
+    <strong>Coach:</strong>
+    <%= @trainclass.coach_id %>
+  </p>
+
+  <%= link_to 'Edit', edit_trainclass_path(@trainclass) %> |
+  <%= link_to 'Back', trainclasses_path %>
+
+</section>
