@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Trainclass</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user_id %></td>
+        <td><%= booking.trainclass_id %></td>
+
+        <td><%= link_to 'Show', 'traniclass/#{booking.trainclass_id}/bookings/#{booking.id}' %></td>
+        <td><%= link_to 'Edit', 'traniclass/#{booking.trainclass_id}/bookings/#{booking.id}' %></td>
+        <td><%= link_to 'Destroy', 'traniclass/#{booking.trainclass_id}/bookings/#{booking.id}', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

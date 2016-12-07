@@ -30,7 +30,7 @@
             <td><button id="js-show">  <%= link_to 'Show', trainclass %></button></td>
             <td><button id="js-edit"> <%= link_to 'Edit', edit_trainclass_path(trainclass) %></button></td>
             <td><button id="js-destroy"> <%= link_to 'Destroy', trainclass, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-            <td><button id="js-book"> <%= link_to 'Book', edit_trainclass_path(trainclass) %></button></td>
+            <td><button id="js-book" formmethod="post"> <%= link_to 'Book', "/trainclasses/#{trainclass.id}/bookings" %></button></td>
           </tr>
         <% end %>
       </tbody>
