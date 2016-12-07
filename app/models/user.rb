@@ -6,6 +6,6 @@ class User < ApplicationRecord
          
   enum user_type: [:admin, :coach, :final]
 
-		has_many :trainclasess, through: :bookings
+		has_many :trainclasses, through: :bookings
     has_many :bookings
 end
