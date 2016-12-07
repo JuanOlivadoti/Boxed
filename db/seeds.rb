@@ -8,7 +8,7 @@
 
 3.times do |f|
 
-		date = "2016-12-"+(f+7).to_s
+		date = Date.today+4
 
 	10.times do |i|
 
@@ -16,7 +16,7 @@
 							date: date,
 							time: "2000-01-01 " + (i+7).to_s + ":00:00",
 							capacity: 15,
-							train_class_type: "functional_training",
+							train_class_type: rand(0..2),
 							coach_id: 1,
 							quota:15			
 		})

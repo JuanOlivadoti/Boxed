@@ -5,7 +5,9 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    binding.pry
+    @bookings = Booking.find_by(user_id: current_user.id)
+    binding.pry
   end
 
   # GET /bookings/1
@@ -25,17 +27,15 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(booking_params)
 
-    respond_to do |format|
-      if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
-      else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
-    end
+    @userid = params[:user_id]
+    @trainid = params[:format]
+    
+    binding.pry
+
+    @booking = Booking.create(user_id: @userid, trainclass_id: @trainid)
+
+    redirect_to "trainclasses/"+@trainid
   end
 
   # PATCH/PUT /bookings/1
@@ -56,10 +56,7 @@ class BookingsController < ApplicationController
   # DELETE /bookings/1.json
   def destroy
     @booking.destroy
-    respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   private
@@ -70,6 +67,9 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user_id, :trainclass_id)
+      binding.pry
+      @userid = params[:user_id]
+      @trainid = params[:format]
+
     end
 end

@@ -30,12 +30,11 @@
             <td><button id="js-show">  <%= link_to 'Show', trainclass %></button></td>
             <td><button id="js-edit"> <%= link_to 'Edit', edit_trainclass_path(trainclass) %></button></td>
             <td><button id="js-destroy"> <%= link_to 'Destroy', trainclass, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-            <td><button id="js-book" data-train-id="<%= trainclass.id %>">Book</button></td>
+            <td><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: trainclass.id } %></td>
           </tr>
-        <% end %>
-      </tbody>
+            <% end %>
+        </tbody>
     </table>
-
     <br>
 
     <%= link_to 'New Trainclass', new_trainclass_path %>
