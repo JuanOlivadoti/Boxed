@@ -1,5 +1,4 @@
 class TrainclassesController < ApplicationController
-  before_filter :authenticate_user!
 
   respond_to :json
   # GET /trainclasses
