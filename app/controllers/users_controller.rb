@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+
   def bookings
   	@bookings = Booking.find_by(:user_id, current_user.id)
   end
@@ -17,7 +19,6 @@ class UsersController < ApplicationController
 			return	
 		end
 		binding.pry
-		console.log(user)
 		user.trainclasses.push(trainclass)
 		user.save
 

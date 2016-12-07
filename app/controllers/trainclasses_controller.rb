@@ -1,6 +1,7 @@
 class TrainclassesController < ApplicationController
-  before_action :set_trainclass, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
+  respond_to :json
   # GET /trainclasses
   # GET /trainclasses.json
   def index
@@ -10,6 +11,7 @@ class TrainclassesController < ApplicationController
   # GET /trainclasses/1
   # GET /trainclasses/1.json
   def show
+    @trainclass = Trainclass.find_by(id: params[:id])
   end
 
   # GET /trainclasses/new
@@ -19,6 +21,7 @@ class TrainclassesController < ApplicationController
 
   # GET /trainclasses/1/edit
   def edit
+    @trainclass = Trainclass.find_by(id: params[:id])
   end
 
   # POST /trainclasses
@@ -54,6 +57,8 @@ class TrainclassesController < ApplicationController
   # DELETE /trainclasses/1
   # DELETE /trainclasses/1.json
   def destroy
+    @trainclass = Trainclass.find_by(id: params[:id])
+
     @trainclass.destroy
     respond_to do |format|
       format.html { redirect_to trainclasses_url, notice: 'Trainclass was successfully destroyed.' }
