@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :date %>
-    <%= f.date_select :date %>
+    <%= f.date_field :date %>
   </div>
 
   <div class="field">
@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :max_quota %>
-    <%= f.number_field :max_quota, within: 1..15 %>
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity, within: 1..15 %>
   </div>
 
   <div class="field">
