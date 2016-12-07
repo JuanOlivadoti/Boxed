@@ -4,7 +4,7 @@
 
     <h1>Trainclasses</h1>
 
-    <h3>Select date</h3> <br>
+    <h3>Hi, <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span></h3> <br>
 
     </div>
 
@@ -30,7 +30,7 @@
             <td><button id="js-show">  <%= link_to 'Show', trainclass %></button></td>
             <td><button id="js-edit"> <%= link_to 'Edit', edit_trainclass_path(trainclass) %></button></td>
             <td><button id="js-destroy"> <%= link_to 'Destroy', trainclass, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-            <td><button id="js-book"> <%= link_to 'Book', edit_trainclass_path(trainclass) %></button></td>
+            <td><button id="js-book" data-train-id="<%= trainclass.id %>">Book</button></td>
           </tr>
         <% end %>
       </tbody>
