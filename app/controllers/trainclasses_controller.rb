@@ -56,6 +56,8 @@ class TrainclassesController < ApplicationController
   # DELETE /trainclasses/1
   # DELETE /trainclasses/1.json
   def destroy
+
+    binding.pry
     @trainclass = Trainclass.find_by(id: params[:id])
 
     @trainclass.destroy

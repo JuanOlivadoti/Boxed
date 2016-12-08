@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   # post "/users/:id/trainclass/add" => "users#add_trainclass"
   get '/users/:user_id/booking/', to: 'bookings#index', as: :booking_index
   post '/users/:user_id/booking/', to: 'bookings#create', as: :booking_create
-  delete '/users/:user_id/booking/:id', to: 'bookings#delete', as: :booking_delete
+  delete '/bookings/:id', to: 'bookings#destroy', as: :booking_destroy
   
 end
