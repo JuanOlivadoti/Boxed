@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def bookings
-  	@bookings = Booking.find_by(:user_id, current_user.id)
+  	# binding.pry
+  	@bookings = Booking.where(user_id: current_user.id)
   end
 
 	def add_trainclass
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 			render json: { error: "trainclass not found" }, status: 404
 			return	
 		end
-		binding.pry
+		# binding.pry
 		user.trainclasses.push(trainclass)
 		user.save
 
