@@ -1,8 +1,19 @@
 class UsersController < ApplicationController
 
+  def information
+		@user = User.find_by(id: current_user.id)
+		render "athlete_info.html.erb"
+  end
+
+  def data
+		@user = User.find_by(id: current_user.id)
+		render "athlete_info.html.erb"
+  end
+
   def bookings
-  	# binding.pry
   	@bookings = Booking.where(user_id: current_user.id)
+  	@action = "bookings"
+  	render "athlete_info.html.erb"
   end
 
 	def add_trainclass
@@ -23,5 +34,18 @@ class UsersController < ApplicationController
 		user.save
 
 		render json: {user: user, trainclasses: user.trainclasses}
+	end
+
+	def athlete_info
+
+		user = User.find_by(id: current_user.id)
+  	@bookings = Booking.where(user_id: current_user.id)
+
+		unless user
+			render json: { error: "User not found" }, status: 404
+			return		
+		end
+		render "athlete_info.html.erb"
+		# render json: {user: user, trainclasses: user.trainclasses}
 	end
 end

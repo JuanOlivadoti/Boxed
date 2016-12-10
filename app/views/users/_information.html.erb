@@ -1,0 +1,37 @@
+<section class="fullwidth">
+  <div class="container">
+
+    <p id="notice"><%= notice %></p>
+
+    <div class="row">
+			<div class="col s6 offset-s3">
+				<form id="form-info">
+		      <div class="field">
+						<label for="afiliation">Afiliation</label>
+						<input type="text" value="<%= current_user.id %>" >
+		      </div>
+		      <div class="field">
+						<label for="afiliation">Email</label>
+						<input type="text" value="<%= current_user.email %>" >
+		      </div>
+		      <div class="field">
+						<label for="afiliation">DNI</label>
+						<input type="text" value="<%= current_user.dni %>" >
+		      </div>
+		      <div class="field">
+						<label for="afiliation">Birthday</label>
+						<input type="text" value="<%= current_user.bday %>" >
+		      </div>
+		      <div class="field">
+						<label for="afiliation">Medical Certificate validity</label>
+						<input type="text" value="<%= current_user.medcert %>" >
+		      </div>
+		    </form>
+			</div>
+
+    </div>
+		
+     <button class="waves-effect teal darken-4 btn"><%= link_to "Edit", edit_user_registration_path(current_user.id) %></button>
+
+  </div>
+</section>

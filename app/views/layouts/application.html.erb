@@ -10,26 +10,33 @@
   </head>
 
   <body>
-		<header class="navbar" role="navigation">
-		    <div class="navbar-inner">
-		      <div id="logo"><%= link_to "BOXED", root_path %></div>
-		        <nav >
-		        <!-- USER SIGNED IN -->
-		          <% if user_signed_in? -%>
-		            <ul>
-		              <li><%= link_to 'Account', edit_user_registration_path %></li>
-		              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-		              <li><%= link_to 'Classes', trainclasses_path %></li>
-		            </ul>
-		          <% else -%>
-		            <ul>
-		              <li><%= link_to 'Sign up', new_user_registration_path %></li>
-		              <li><%= link_to 'Sign in', new_user_session_path %></li>
-		            </ul>
-		          <% end -%>
-		      </nav>
+  	<header class="navbar" role="navigation">
+	  	<nav class="navbar-style">
+		    <div class="container">
+		    	<%= link_to "BOXED", root_path, {"id": "logo"} %>
+		        <% if user_signed_in? -%>
+		          <ul id="nav-mobile" class="right hide-on-med-and-down">
+		            <li></li>
+		            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+		            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+		            <li><%= link_to 'Classes', trainclasses_path %></li>
+		          </ul>
+			          <ul id="dropdown1" class="dropdown-content">
+							  <li><%= link_to 'Info', athelet_info_path(current_user.id, @action="info") %></li>
+							  <li><%= link_to 'Data', athelet_info_path(current_user.id, @action="data") %></li>
+							  <li><%= link_to 'Bookings', athelet_info_path(current_user.id, @action="bookings") %></li>
+							  <li class="divider"></li>
+							  <li><%= link_to 'My tracker', athelet_info_path(current_user.id, @action="fit") %></li>
+							</ul>
+		        <% else -%>
+		          <ul>
+		            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+		            <li><%= link_to 'Sign in', new_user_session_path %></li>
+		          </ul>
+		        <% end -%>
 		    </div>
-		  </header>
+		  </nav>
+	  </header>
 
     <%= yield %>
 

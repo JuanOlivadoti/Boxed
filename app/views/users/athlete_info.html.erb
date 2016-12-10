@@ -1,0 +1,18 @@
+<section id="lp-front" class="fullwidth trainclass">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <h1 id="usr-nm" class="center-align" ><%= current_user.name %></h1>
+  
+    <% case params[:format] %>
+			<% when "bookings" %>
+				<%= render "bookings" %>
+			<% when "info" %>
+				<%= render "information" %>
+			<% when "fit" %>
+				<%= render "fit" %>
+			<% when "my_fit_tracker" %>
+				<%= render "my_fit_tracker" %>
+			<% end %>
+
+  </div>
+</section>

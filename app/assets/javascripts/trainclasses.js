@@ -1,34 +1,38 @@
-// function handleOnSuccess(content){
+$(document).ready(function(){
+	
+	function handleErrors(errors){
+	console.log(errors);
+	}
 
-// 	console.log(content);
-		
-// }
+	$('#js-tc-show').click(function(event){
+		event.preventDefault();
+		var uId = $(event.target).data('u-id');
+		var tId = $(event.target).data('t-id');
+		var bId = $(event.target).data('b-id');
 
-// function handleOnError (error) {
-// 	console.log(error);
-// }
+		console.log(uId);
+		console.log(tId);
+		console.log(bId);
 
-// $(document).ready(function(){
-// 	event.preventDefault;
-// 	console.log("document ready");
+		$.ajax ({
+			type: "GET",
+			url: "/trainclasses/" + tId,
+			data: {id: tId},
+			success: show,
+			error: handleErrors
+		});
 
-// 	$('#js-book').click(function(event){
-// 		console.log("loaded");
+	});
 
-// 		var classId = $('[data-train-id]').data('train-id');
-// 		var userId	= $('[data-user-id]').data('user-id');
+	function show (response){
+		console.log("Show me the money!!");
+		var tId = $('#js-tc-show').data('t-id');
 
-// 		console.log(classId);
-// 		console.log(userId);
+		console.log(response);
+		console.log(tId + " Burn!");
 
-// 		$.ajax({
-// 			type: "POST",
-// 			url: `/users/${userId}/trainclass/add`,
-// 			data: {trainclass_id: classId},
-// 			success: handleOnSuccess,
-// 			error: handleOnError
-// 		});
+		window.location.href='/trainclasses/' + tId;
 
-// 	});
+	}
 
-// });
+});

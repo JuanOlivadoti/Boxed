@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.find_by(user_id: current_user.id)
+    @bookings = Booking.where(user_id: current_user.id)
 
   end
 
@@ -30,10 +30,9 @@ class BookingsController < ApplicationController
     @userid = params[:user_id]
     @trainid = params[:format]
     
-
     @booking = Booking.create(user_id: @userid, trainclass_id: @trainid)
 
-    redirect_to "/users/"+@userid+"/bookings"
+    redirect_to "/users/"+@userid+"/athlete_info/bookings"
   end
 
   # PATCH/PUT /bookings/1

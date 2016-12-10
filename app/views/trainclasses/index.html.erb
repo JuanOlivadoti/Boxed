@@ -3,14 +3,18 @@
     <p id="notice"><%= notice %></p>
 
     <h1>Trainclasses</h1>
-
-    <h3>Hi, <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span></h3> <br>
-
-    </div>
+    
+    <% unless current_user.user_type == [0..1] %>
+      <button class="actions waves-effect waves-light btn"><%= link_to 'New Trainclass', new_trainclass_path, class: "clear-link" %></button>
+      <% else %>
+      <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
+    <% end %>
+    <input id="js-tc-datepick" type="date" class="datepicker" placeholder="Pick single date">
 
     <table>
       <thead>
         <tr>
+          <th>Id.</th>
           <th>Date</th>
           <th>Time</th>
           <th>Max quota</th>
@@ -22,21 +26,21 @@
       <tbody>
         <% @trainclasses.each do |trainclass| %>
           <tr>
+            <td><%= trainclass.id %></td>
             <td><%= trainclass.date %></td>
             <td><%= trainclass.time %></td>
-            <td><%= trainclass.capacity %></td>
+            <td><%= trainclass.quota %></td>
             <td><%= trainclass.train_class_type %></td>
             <td><%= trainclass.coach_id %></td>
-            <td><button id="js-show">  <%= link_to 'Show', trainclass %></button></td>
-            <td><button id="js-edit"> <%= link_to 'Edit', edit_trainclass_path(trainclass) %></button></td>
-            <td><button id="js-destroy"> <%= link_to 'Destroy', trainclass, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-            <td><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: trainclass.id } %></td>
+            <td><button id="js-tc-show" class="waves-effect teal darken-4 btn" data-t-id="<%= trainclass.id%>">  <%= link_to 'Show', trainclass, {"data-t-id": trainclass.id, "data-u-id": current_user.id, class: "clear-link"} %></button></td>
+            <td><button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button></td>
+            <td><button id="js-tc-destroy" class="waves-effect teal darken-4 btn"> <%= link_to 'Destroy', trainclass, method: :delete, data: { confirm: 'Are you sure?'}, class: "clear-link" %></button></td>
+            <td><%= link_to 'Book', booking_create_path(current_user.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></td>
           </tr>
             <% end %>
         </tbody>
     </table>
     <br>
-
-    <%= link_to 'New Trainclass', new_trainclass_path %>
   </div>
+
 </section>

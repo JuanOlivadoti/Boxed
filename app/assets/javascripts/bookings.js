@@ -3,9 +3,10 @@ $(document).ready(function(){
 	function handleErrors(errors){
 	console.log(errors);
 	}
-	// DESTROY USER BOOKING
 
-	$('#js-burn').click(function(event){
+	// USER DESTROY BOOKING
+
+	$('#js-bks-burn').click(function(event){
 		event.preventDefault();
 		var uId = $(event.target).data('u-id');
 		var tId = $(event.target).data('t-id');
@@ -27,10 +28,10 @@ $(document).ready(function(){
 
 	function burn (response){
 		console.log("Burn!!");
-		var bId = $('#js-burn').data('b-id');
+		var bId = $('#js-bks-burn').data('b-id');
 
 		console.log(response);
-		console.log(bId);
+		console.log(bId + " Burn!");
 
 		$("#booking-" + bId).remove();
 	}

@@ -2,7 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .trainclass{
+	background: url("/images/Post-Header-Image.jpg") center center no-repeat;
+	background-size:cover;
 	padding-top:70px;
+}
+
+#usr-nm{
+	color:#fff;
 }
 
 table{
@@ -30,4 +36,9 @@ footer{
 			top:2px;
 		}
 	}
+}
+
+#form-info, #edit_user{
+	padding:25px;
+	background-color: rgba(190,190,190, 0.5)
 }
