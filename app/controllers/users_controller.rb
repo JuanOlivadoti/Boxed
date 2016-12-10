@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   def bookings
   	@bookings = Booking.where(user_id: current_user.id)
   	@action = "bookings"
+  	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
+  	@lastbook = @lasttrainclass[0]
   	render "athlete_info.html.erb"
   end
 

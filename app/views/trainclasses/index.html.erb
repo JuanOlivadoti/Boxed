@@ -1,4 +1,4 @@
-<section class="fullwidth trainclass">
+<section class="fullwidth">
   <div class="container">
     <p id="notice"><%= notice %></p>
 
@@ -35,7 +35,7 @@
             <td><button id="js-tc-show" class="waves-effect teal darken-4 btn" data-t-id="<%= trainclass.id%>">  <%= link_to 'Show', trainclass, {"data-t-id": trainclass.id, "data-u-id": current_user.id, class: "clear-link"} %></button></td>
             <td><button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button></td>
             <td><button id="js-tc-destroy" class="waves-effect teal darken-4 btn"> <%= link_to 'Destroy', trainclass, method: :delete, data: { confirm: 'Are you sure?'}, class: "clear-link" %></button></td>
-            <td><%= link_to 'Book', booking_create_path(current_user.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></td>
+            <td><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></td>
           </tr>
             <% end %>
         </tbody>

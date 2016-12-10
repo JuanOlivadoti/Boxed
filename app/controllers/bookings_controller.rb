@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   respond_to :json
   # GET /bookings
   # GET /bookings.json
   def index
     @bookings = Booking.where(user_id: current_user.id)
-
   end
 
   # GET /bookings/1
@@ -26,7 +25,7 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-
+    # binding.pry
     @userid = params[:user_id]
     @trainid = params[:format]
     

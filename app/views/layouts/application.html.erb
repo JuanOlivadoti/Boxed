@@ -22,13 +22,9 @@
 		          </ul>
 			          <ul id="dropdown1" class="dropdown-content">
 			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#info">Information</a></li>
-							  <li><%= link_to 'Info', athelet_info_path(current_user.id, @action="info") %></li>
 			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#book">Bookings</a></li>
-
-							  <li><%= link_to 'Data', athelet_info_path(current_user.id, @action="data") %></li>
-							  <li><%= link_to 'Bookings', athelet_info_path(current_user.id, @action="bookings") %></li>
 							  <li class="divider"></li>
-							  <li><%= link_to 'My tracker', athelet_info_path(current_user.id, @action="fit") %></li>
+			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#mfit">My Fit tracker</a></li>
 							</ul>
 		        <% else -%>
 		          <ul>
