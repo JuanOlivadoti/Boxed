@@ -16,13 +16,15 @@
 		    	<%= link_to "BOXED", root_path, {"id": "logo"} %>
 		        <% if user_signed_in? -%>
 		          <ul id="nav-mobile" class="right hide-on-med-and-down">
-		            <li></li>
-		            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+		            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
 		            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
 		            <li><%= link_to 'Classes', trainclasses_path %></li>
 		          </ul>
 			          <ul id="dropdown1" class="dropdown-content">
+			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#info">Information</a></li>
 							  <li><%= link_to 'Info', athelet_info_path(current_user.id, @action="info") %></li>
+			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#book">Bookings</a></li>
+
 							  <li><%= link_to 'Data', athelet_info_path(current_user.id, @action="data") %></li>
 							  <li><%= link_to 'Bookings', athelet_info_path(current_user.id, @action="bookings") %></li>
 							  <li class="divider"></li>

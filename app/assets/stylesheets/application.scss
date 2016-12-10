@@ -18,9 +18,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Abel|Bungee|Special+Elite');
 
-body{
-	margin:0;
-font-family: 'Abel', sans-serif;
+html, body, .block {
+  height: 100vh;
+  margin:0;
+	font-family: 'Abel', sans-serif;
 }
 
 
@@ -128,4 +129,21 @@ footer{
 .clear-link{
 	text-decoration: none;
 	color:inherit;
+}
+
+/*Push pin in user information pages */
+
+// Class for when element is above threshold
+.pin-top {
+  position: relative;
+}
+
+// Class for when element is below threshold
+.pin-bottom {
+  position: relative;
+}
+
+// Class for when element is pinned
+.pinned {
+  position: fixed !important;
 }

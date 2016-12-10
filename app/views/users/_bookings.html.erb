@@ -2,7 +2,9 @@
   <div class="container">
     <h3>Bookings</h3>
 
-    <% binding.pry %>
+    <% if @bookings == nil %>
+    <p>You have no bookings </p>
+    <% else %>
     <table>
       <thead>
         <tr>
@@ -21,5 +23,6 @@
         <% end %>
       </tbody>
     </table>
+    <% end %>
   </div>
 </section>

@@ -1,18 +1,50 @@
 <section id="lp-front" class="fullwidth trainclass">
   <div class="container">
     <p id="notice"><%= notice %></p>
-    <h1 id="usr-nm" class="center-align" ><%= current_user.name %></h1>
-  
-    <% case params[:format] %>
-			<% when "bookings" %>
-				<%= render "bookings" %>
-			<% when "info" %>
-				<%= render "information" %>
-			<% when "fit" %>
-				<%= render "fit" %>
-			<% when "my_fit_tracker" %>
-				<%= render "my_fit_tracker" %>
-			<% end %>
+    
+	  <div id="info" class="block blue lighten-1"><!--info partial -->
+		  <nav class="pushpin-nav pin-top" data-target="blue" style="top: 0px;">
+		    <div class="nav-wrapper blue">
+		      <div class="container">
+		        <a href="#" class="brand-logo">Information</a>
+		      </div>
+		    </div>
+		  </nav>
+		  <%= render "information" %>
+		</div><!----END-- info partial -->
+		
+		<div id="book" class="block red lighten-1"><!--bookings partial -->
+		  <nav class="pushpin-nav pin-top" data-target="red" style="top: 0px;">
+		    <div class="nav-wrapper red">
+		      <div class="container">
+		        <a href="#" class="brand-logo">Red</a>
+		        <ul id="nav-mobile" class="right hide-on-med-and-down">
+		          <li><a href="#!">Red Link 1</a></li>
+		          <li><a href="#!">Red Link 2</a></li>
+		          <li><a href="#!">Red Link 3</a></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </nav>
+		  <%= render "bookings" %>
+		</div><!----END-- bookings partial -->
+
+		<div id="book" class="block green lighten-1"><!--bookings partial -->
+		  <nav class="pushpin-nav pin-top" data-target="green" style="top: 0px;">
+		    <div class="nav-wrapper green">
+		      <div class="container">
+		        <a href="#" class="brand-logo">green</a>
+		        <ul id="nav-mobile" class="right hide-on-med-and-down">
+		          <li><a href="#!">green Link 1</a></li>
+		          <li><a href="#!">green Link 2</a></li>
+		          <li><a href="#!">green Link 3</a></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </nav>
+		  <%= render "my_fit_tracker" %>
+		</div><!----END-- fit tracker partial -->
 
   </div>
 </section>
+

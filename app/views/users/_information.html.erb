@@ -1,4 +1,4 @@
-<section class="fullwidth">
+<section class="fullwidth fullheiht">
   <div class="container">
 
     <p id="notice"><%= notice %></p>
@@ -26,12 +26,9 @@
 						<label for="afiliation">Medical Certificate validity</label>
 						<input type="text" value="<%= current_user.medcert %>" >
 		      </div>
+		      <button class="waves-effect teal darken-4 btn "><%= link_to "Edit", edit_user_registration_path(current_user.id),class: "clear-link" %></button>
 		    </form>
 			</div>
-
     </div>
-		
-     <button class="waves-effect teal darken-4 btn"><%= link_to "Edit", edit_user_registration_path(current_user.id) %></button>
-
   </div>
 </section>
