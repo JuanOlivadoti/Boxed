@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/my_fit_tracker', to: "my_fit_tracker#create", as: :create_user_my_fit_tracker
 
-  get '/users/:user_id/athlete_info/my_fit', to: "users#my_fit_tracker"
+  # get '/users/:user_id/athlete_info/my_fit', to: "users#my_fit_tracker"
 end

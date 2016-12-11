@@ -12,11 +12,12 @@ class MyFitTrackerController < ApplicationController
 	end
 
 	def create
-		# binding.pry
-		@my_fit_tracker = MyFitTracker.new
-		@my_fit_tracker = @user.my_fit_trackers.create(my_fit_tracker_params)
+		@my_fit_tracker = MyFitTracker.new(my_fit_tracker_params)
+		@my_fit_tracker.save
 
-		redirect_to @user
+		# binding.pry
+		# @my_fit_tracker = MyFitTracker.new
+		# @my_fit_tracker = @user.my_fit_trackers.create(my_fit_tracker_params)
 	end
 
 	private
@@ -26,6 +27,6 @@ class MyFitTrackerController < ApplicationController
 	end
 
 	def my_fit_tracker_params
-		params[:my_fit_tracker].permit(:user, :exercise, :value, :um, :exercise_type)
+		params.permit(:user_id, :exercise, :value, :um, :exercise_type)
 	end
 end

@@ -1,14 +1,19 @@
-<section class="fullwidth">
+<section class="fullwidth trainclass">
   <div class="container">
 
     <p id="notice"><%= notice %></p>
-    <h2><%= @user.name %></h2>
+
     <h3>My fit tracker</h3>
-		<div id="my_fit_tracker_wrapper">
-			<%= render @user.my_fit_trackers %>
+
 			<div id="form">
 				<%= render "my_fit_trackers/form" %>
 			</div>
+	</div>
+	<div class="container row">
+		<div class="col s10 offset-s1">
+			<div id="tracks">
+				<%= render "my_fit_tracker" %>
+			</div>
 		</div>
-  </div>
+	</div>
 </section>

@@ -12,9 +12,9 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@my_fit_tracker = My_fit_tracker.new
+  	@my_fit_trackers = MyFitTracker.where(user_id: current_user.id)
 
-  	render "my_fit_trackers"
+  	render "users/my_fit"
   end
 
   def bookings

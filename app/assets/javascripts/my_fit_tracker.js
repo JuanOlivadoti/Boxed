@@ -2,6 +2,46 @@ $(document).ready(function(){
 
 	console.log("ready");
 
+	function handleErrors(errors){
+	console.log(errors);
+
+	}
+
+	$('#submit').click(function(event){
+		event.preventDefault();
+		var uId = $('#submit').data('user-id');
+		var exer = $('#exercise').val();
+		var valu = $('#value').val();
+		var um = $('#um').val();
+		var exty = $('#exercise_type').val();
+
+		console.log(uId);
+		console.log(exer);
+		console.log(valu);
+		console.log(um);
+		console.log(exty);
+
+		$.ajax ({
+			type: "POST",
+			url: "/users/"+uId+"/my_fit_tracker",
+			data: {
+				user_id: uId,
+				exercise: exer,
+				value: valu,
+				um: um,
+				exercise_type: exty
+			},
+			success: fittrackcreate,
+			error: handleErrors
+		});
+
+	});
+
+	function fittrackcreate (response){
+		console.log("Show me the money!!");
+		console.log(response);
+	}
+
 	$('#exercise').click(function(){
 		$('#exercise').autocomplete({
 	  data: {
