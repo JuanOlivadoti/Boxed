@@ -1,0 +1,41 @@
+<section id="lp-front" class="fullwidth trainclass">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    
+    <div id="info" class="block blue lighten-1"><!--info partial -->
+      <nav class="pushpin-nav pin-top" data-target="blue" style="top: 0px;">
+        <div class="nav-wrapper blue">
+          <div class="container">
+            <a href="#" class="brand-logo">Information</a>
+          </div>
+        </div>
+      </nav>
+      <section class="fullwidth">
+        <div class="container">
+          <h3>Bookings</h3>
+          <% if @bookings == nil %>
+          <p>You have no bookings </p>
+          <% else %>
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Trainclass</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @bookings.each do |booking| %>
+                <tr id="booking-<%= booking.id %>">
+                  <td><%= booking.user_id %></td>
+                  <td><%= booking.trainclass_id %></td>
+                  
+                  <td><a id="js-bks-burn" class="waves-effect waves-teal btn-flat" data-b-id="<%=booking.id%>" data-u-id="<%=current_user.id%>" data-t-id="<%=booking.trainclass_id%>"><i class="material-icons">delete</i>Burn!!</a></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <% end %>
+        </div>
+      </section>
+  </div>
+</section>

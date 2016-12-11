@@ -17,6 +17,7 @@
 //= require_tree .
 $(document).ready(function(){
 
+	// =============== DATE PICKER
 	$('.btn-flat picker__close').click(function(event){
 
 		var dtpikd = document.getElementById('js-tc-datepick').value();
@@ -30,6 +31,9 @@ $(document).ready(function(){
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
 
+		// =============== PARALLAX
   $('.parallax').parallax();
+
+	// =============== DATE PICKER
 
 });

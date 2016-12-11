@@ -11,7 +11,7 @@
 
   <body>
   	<header class="navbar" role="navigation">
-	  	<nav class="navbar-style">
+	  	<nav class="navbar-style red">
 		    <div class="container">
 		    	<%= link_to "BOXED", root_path, {"id": "logo"} %>
 		        <% if user_signed_in? -%>
@@ -21,10 +21,10 @@
 		            <li><%= link_to 'Classes', trainclasses_path %></li>
 		          </ul>
 			          <ul id="dropdown1" class="dropdown-content">
-			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#info">Information</a></li>
-			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#book">Bookings</a></li>
+			          <li><a href="/users/<%=current_user.id%>/athlete_info/information">Information</a></li>
+			          <li><a href="/users/<%=current_user.id%>/athlete_info/bookings">Bookings</a></li>
 							  <li class="divider"></li>
-			          <li><a href="/users/<%=current_user.id%>/athlete_info/information#mfit">My Fit tracker</a></li>
+			          <li><a href="/users/<%=current_user.id%>/athlete_info/my_fit_tracker">My Fit tracker</a></li>
 							</ul>
 		        <% else -%>
 		          <ul>

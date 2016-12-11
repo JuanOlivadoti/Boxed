@@ -2,20 +2,26 @@ class UsersController < ApplicationController
 
   def information
 		@user = User.find_by(id: current_user.id)
-		render "athlete_info.html.erb"
-  end
+  	@bookings = Booking.where(user_id: current_user.id)
+  	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
+  	@lastbook = @lasttrainclass[0]
 
-  def data
-		@user = User.find_by(id: current_user.id)
-		render "athlete_info.html.erb"
+		render "information.html.erb"
   end
 
   def bookings
   	@bookings = Booking.where(user_id: current_user.id)
   	@action = "bookings"
-  	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
-  	@lastbook = @lasttrainclass[0]
-  	render "athlete_info.html.erb"
+  	if @bookings == nil?
+	  	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
+	  	@lastbook = @lasttrainclass[0]
+	  end
+  	render "bookings.html.erb"
+  end
+
+  def data
+		@user = User.find_by(id: current_user.id)
+		render "data.html.erb"
   end
 
 	def add_trainclass
