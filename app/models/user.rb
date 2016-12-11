@@ -15,4 +15,5 @@ class User < ApplicationRecord
 
 		has_many :trainclasses, through: :bookings
     has_many :bookings, dependent: :destroy
+    has_many :my_fit_trackers, dependent: :destroy
 end

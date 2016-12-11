@@ -1,0 +1,15 @@
+<%= form_for(@user.my_fit_trackers.to_set([:exercise])) do |f| %>
+	<%= f.label :Exercise %>
+	<%= f.text_field :exercise, placeholder: "Exercise" %>
+
+	<%= f.label :Value %>
+	<%= f.number_field :value, placeholder: "Value" %>
+
+	<%= f.label :Um %>
+	<%= f.number_field :um, placeholder: "Um" %>
+	
+	<%= f.label :ExerciseType %>
+	<%= f.number_field :exercise_type, placeholder: "Exercise Type" %>
+
+	<%= f.submit %>
+<% end %>

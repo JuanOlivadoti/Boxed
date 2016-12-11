@@ -1,0 +1,2 @@
+module MyFitTrackerHelper
+end

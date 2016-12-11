@@ -1,0 +1,14 @@
+<section class="fullwidth">
+  <div class="container">
+
+    <p id="notice"><%= notice %></p>
+    
+    <h3>My fit tracker</h3>
+		<div id="my_fit_tracker_wrapper">
+			<%= render current_user.my_fit_trackers %>
+			<div id="form">
+				<%= render "my_fit_tracker/form" %>
+			</div>
+		</div>
+  </div>
+</section>

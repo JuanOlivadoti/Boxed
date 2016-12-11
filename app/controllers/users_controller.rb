@@ -9,6 +9,13 @@ class UsersController < ApplicationController
 		render "information.html.erb"
   end
 
+  def show
+  	@user = current_user
+  	@my_fit_tracker = My_fit_tracker.new
+
+  	render "my_fit_trackers"
+  end
+
   def bookings
   	@bookings = Booking.where(user_id: current_user.id)
   	@action = "bookings"

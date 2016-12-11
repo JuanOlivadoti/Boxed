@@ -2,11 +2,11 @@
   <div class="container">
     <p id="notice"><%= notice %></p>
     
-    <div id="info" class="block blue lighten-1"><!--info partial -->
-      <nav class="pushpin-nav pin-top" data-target="blue" style="top: 0px;">
-        <div class="nav-wrapper blue">
+    <div id="info" class="block green lighten-1"><!--info partial -->
+      <nav class="pushpin-nav pin-top" data-target="green" style="top: 0px;">
+        <div class="nav-wrapper green">
           <div class="container">
-            <a href="#" class="brand-logo">Information</a>
+            <a href="#" class="brand-logo">Bookings</a>
           </div>
         </div>
       </nav>
@@ -29,7 +29,7 @@
                   <td><%= booking.user_id %></td>
                   <td><%= booking.trainclass_id %></td>
                   
-                  <td><a id="js-bks-burn" class="waves-effect waves-teal btn-flat" data-b-id="<%=booking.id%>" data-u-id="<%=current_user.id%>" data-t-id="<%=booking.trainclass_id%>"><i class="material-icons">delete</i>Burn!!</a></td>
+                  <td><%= link_to 'Burn!!', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?'}, class: "waves-effect waves-teal btn-flat" %></td>
                 </tr>
               <% end %>
             </tbody>

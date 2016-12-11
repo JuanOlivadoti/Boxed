@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exercise: MyString
+  value: 1
+  um: MyString
+  exercise_type: 1
+  user: one
+
+two:
+  exercise: MyString
+  value: 1
+  um: MyString
+  exercise_type: 1
+  user: two
