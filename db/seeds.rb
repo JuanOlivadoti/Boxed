@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-3.times do |f|
+7.times do |f|
 
 		date = Date.today+4
 
@@ -14,11 +14,11 @@
 
 		trainclass = Trainclass.create!({
 							date: date,
-							time: "2000-01-01 " + (i+7).to_s + ":00:00",
+							datetime: Time.now,
 							capacity: 15,
 							train_class_type: rand(0..2),
 							coach_id: 1,
-							quota:15			
+							quota: i			
 		})
 	end
 end

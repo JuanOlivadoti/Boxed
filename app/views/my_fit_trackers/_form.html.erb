@@ -1,16 +1,28 @@
-<%= form_for @my_fit_tracker, :url => { :action => "create"} do |f| %>
-	<% f.number_field :user, value: current_user.id %>
-	<%= f.label :Exercise %>
-	<%= f.text_field :exercise, placeholder: "Exercise" %>
-
-	<%= f.label :Value %>
-	<%= f.number_field :value, placeholder: "Value" %>
-
-	<%= f.label :Um %>
-	<%= f.number_field :um, placeholder: "Um" %>
-	
-	<%= f.label :ExerciseType %>
-	<%= f.number_field :exercise_type, placeholder: "Exercise Type" %>
-
-	<%= f.submit %>
-<% end %>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">textsms</i>
+        <input type="text" id="exercise" class="autocomplete">
+        <label for="autocomplete-input">Autocomplete</label>
+      </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">label_outline</i>
+        <input type="text" id="value" class="">
+        <label for="value">Value</label>
+      </div>      <div class="input-field col s12">
+        <i class="material-icons prefix">settings</i>
+        <input type="text" id="um" class="">
+        <label for="um">Measure unit</label>
+      </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">settings_applications</i>
+        <input type="text" id="exercise_type" class="">
+        <label for="exercise_type">Excercise type</label>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+		    <i class="material-icons right">send</i>
+		  </button>
+    </div>
+  </div>
+</div>

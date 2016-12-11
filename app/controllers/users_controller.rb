@@ -2,9 +2,11 @@ class UsersController < ApplicationController
 	before_action :set_user
 
   def information
-  	@bookings = Booking.where(user_id: current_user.id)
   	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
-  	@lastbook = @lasttrainclass[0]
+
+  	if @lasttrainclass != nil?
+	  	@lastbook = @lasttrainclass[-1]
+	  end
 
 		render "information.html.erb"
   end

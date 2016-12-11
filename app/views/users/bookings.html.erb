@@ -1,41 +1,35 @@
-<section id="lp-front" class="fullwidth trainclass">
-  <div class="container">
-    <p id="notice"><%= notice %></p>
-    
-    <div id="info" class="block green lighten-1"><!--info partial -->
-      <nav class="pushpin-nav pin-top" data-target="green" style="top: 0px;">
-        <div class="nav-wrapper green">
-          <div class="container">
-            <a href="#" class="brand-logo">Bookings</a>
-          </div>
-        </div>
-      </nav>
-      <section class="fullwidth">
-        <div class="container">
-          <h3>Bookings</h3>
-          <% if @bookings == nil %>
-          <p>You have no bookings </p>
-          <% else %>
-          <table>
-            <thead>
-              <tr>
-                <th>User</th>
-                <th>Trainclass</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @bookings.each do |booking| %>
-                <tr id="booking-<%= booking.id %>">
-                  <td><%= booking.user_id %></td>
-                  <td><%= booking.trainclass_id %></td>
-                  
-                  <td><%= link_to 'Burn!!', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?'}, class: "waves-effect waves-teal btn-flat" %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+<div id="info" class="block green lighten-1"><!--info partial -->
+  <nav class="pushpin-nav pin-top" data-target="green" style="top: 0px;">
+    <div class="nav-wrapper green">
+      <div class="container">
+        <a href="#" class="brand-logo">Bookings</a>
+      </div>
+    </div>
+  </nav>
+  <section class="fullwidth">
+    <div class="container">
+      <h3>Bookings</h3>
+      <% if @bookings == nil %>
+      <p>You have no bookings </p>
+      <% else %>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Trainclass</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bookings.each do |booking| %>
+            <tr id="booking-<%= booking.id %>">
+              <td><%= booking.user_id %></td>
+              <td><%= booking.trainclass_id %></td>
+              
+              <td><%= link_to 'Burn!!', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?'}, class: "waves-effect waves-teal btn-flat" %></td>
+            </tr>
           <% end %>
-        </div>
-      </section>
-  </div>
-</section>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </section>

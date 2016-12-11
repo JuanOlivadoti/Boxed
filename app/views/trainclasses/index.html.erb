@@ -1,4 +1,4 @@
-<section class="fullwidth">
+<section class="fullwidth trainclass">
   <div class="container">
     <p id="notice"><%= notice %></p>
 
@@ -17,7 +17,8 @@
           <th>Id.</th>
           <th>Date</th>
           <th>Time</th>
-          <th>Max quota</th>
+          <th>Quota</th>
+          <th>Capacity</th>
           <th>Train class type</th>
           <th>Coach</th>
           <th colspan="3"></th>
@@ -28,8 +29,9 @@
           <tr>
             <td><%= trainclass.id %></td>
             <td><%= trainclass.date %></td>
-            <td><%= trainclass.time %></td>
+            <td><%= trainclass.datetime %></td>
             <td><%= trainclass.quota %></td>
+            <td><%= trainclass.capacity %></td>
             <td><%= trainclass.train_class_type %></td>
             <td><%= trainclass.coach_id %></td>
             <td><button id="js-tc-show" class="waves-effect teal darken-4 btn" data-t-id="<%= trainclass.id%>">  <%= link_to 'Show', trainclass, {"data-t-id": trainclass.id, "data-u-id": current_user.id, class: "clear-link"} %></button></td>

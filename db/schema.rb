@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161211074129) do
 
   create_table "trainclasses", force: :cascade do |t|
     t.date     "date"
-    t.time     "time"
+    t.time     "datetime"
     t.integer  "capacity"
     t.integer  "train_class_type"
     t.integer  "coach_id"

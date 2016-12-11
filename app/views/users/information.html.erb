@@ -61,7 +61,7 @@
 								<% else %>
 								<ul>
 									<li><%= @lastbook.date %></li>
-									<li><%= @lastbook.time %></li>
+									<li><%= @lastbook.datetime.to_s(:time) %></li>
 									<li><%= @lastbook.train_class_type %></li>
 								</ul>	
 								<%end%>
