@@ -1,4 +1,5 @@
-<%= form_for(@user.my_fit_trackers.to_set([:exercise])) do |f| %>
+<%= form_for @my_fit_tracker, :url => { :action => "create"} do |f| %>
+	<% f.number_field :user, value: current_user.id %>
 	<%= f.label :Exercise %>
 	<%= f.text_field :exercise, placeholder: "Exercise" %>
 

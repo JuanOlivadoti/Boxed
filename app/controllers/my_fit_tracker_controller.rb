@@ -2,12 +2,21 @@ class MyFitTrackerController < ApplicationController
 	before_action :set_user
 
 	def index
-		redirect_to "/users/my_fit_tracker"
+		@my_fit_trackers = MyFitTracker.where(user_id: current_user.id)
+
+		render "users/my_fit"
+	end
+
+	def show
+		@my_fit_trackers = MyFitTracker.where(user_id: current_user.id)
 	end
 
 	def create
-		@track = @user.my_fit_trackers.create(my_fit_tracker_params)
-		redirect_to user_my_fit_tracker_index_path(@user)
+		# binding.pry
+		@my_fit_tracker = MyFitTracker.new
+		@my_fit_tracker = @user.my_fit_trackers.create(my_fit_tracker_params)
+
+		redirect_to @user
 	end
 
 	private
@@ -17,6 +26,6 @@ class MyFitTrackerController < ApplicationController
 	end
 
 	def my_fit_tracker_params
-		params[:my_fit_tracker].permit(:exercise, :value, :um, :exercise_type)
+		params[:my_fit_tracker].permit(:user, :exercise, :value, :um, :exercise_type)
 	end
 end

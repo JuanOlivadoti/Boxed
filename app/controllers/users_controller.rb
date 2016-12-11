@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+	before_action :set_user
 
   def information
-		@user = User.find_by(id: current_user.id)
   	@bookings = Booking.where(user_id: current_user.id)
   	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
   	@lastbook = @lasttrainclass[0]
@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = current_user
   	@my_fit_tracker = My_fit_tracker.new
 
   	render "my_fit_trackers"
@@ -27,13 +26,10 @@ class UsersController < ApplicationController
   end
 
   def data
-		@user = User.find_by(id: current_user.id)
 		render "data.html.erb"
   end
 
 	def add_trainclass
-
-		user = User.find_by(id: params[:id])
 		unless user
 			render json: { error: "User not found" }, status: 404
 			return		
@@ -52,8 +48,6 @@ class UsersController < ApplicationController
 	end
 
 	def athlete_info
-
-		user = User.find_by(id: current_user.id)
   	@bookings = Booking.where(user_id: current_user.id)
 
 		unless user
@@ -62,5 +56,17 @@ class UsersController < ApplicationController
 		end
 		render "athlete_info.html.erb"
 		# render json: {user: user, trainclasses: user.trainclasses}
+	end
+
+	def my_fit_tracker
+		@my_fit_trackers = MyFitTracker.where(user_id: current_user.id)
+
+		redirect_to create_user_my_fit_tracker_path
+	end
+
+	private
+
+	def set_user
+		@user = current_user
 	end
 end
