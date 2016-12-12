@@ -16,7 +16,7 @@
 
 @import 'materialize';
 
-@import url('https://fonts.googleapis.com/css?family=Abel|Bungee|Special+Elite');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Open+Sans:700|Special+Elite');
 
 html, body, .block {
   height: 100vh;
@@ -27,27 +27,79 @@ html, body, .block {
 
 header{
 	width:100%;
-	border-bottom: 1px solid #000;
 	height:60px;
-	box-shadow: 0px 2px 2px #000;
 	position: fixed;
 	z-index: 1000;
 
 
 	#logo{
 		font-family: 'Bungee', cursive;
-		font-size: 40px;
+		font-size: 45px;
 		width: 30%;
 		float: left;
 		padding-top: 5px;
-		color: #d00;
+		color: #FFF;
+		text-shadow: 3px 3px 0 #000,
+	    -3px 3px 0 #000,
+	    3px -3px 0 #000,
+	    -3px -3px 0 #000;
+	  
 	}
+	#logo-img{
+		height: 40px;
+	}
+	
 	#logo:hover{
 		text-shadow: none;
 		left: 3px;
 		top:3px;
 		font-weight: bolder;
+		text-shadow: 5px 5px 0 #000,
+	    -5px 5px 0 #000,
+	    5px -5px 0 #000,
+	    -5px -5px 0 #000;
+		background-color: rgba(255,255,255,0);
+		transition: font-weight 0.7s ease;
+		#logo-img:hover{
+			height: 45px;
+			transition: height 0.5s ease;
+		}
 	}
+	
+	nav{
+		background-color: rgba(255,255,255,0.1);
+		padding:0 12vw;
+
+
+		a{
+			font: bold 1rem Open Sans;
+			text-transform: uppercase;
+			line-height: 63px;
+			transition: color 0.7s ease;
+		}
+		a:hover{
+			color: red;
+			background-color: rgba(0,0,0,0.3);
+		}
+	}
+}
+
+.nav {
+	transition-duration: 1s;
+}
+
+#logo{		
+	font-family: 'Bungee', cursive;
+	font-size: 80px;
+	width: 30%;
+	float: left;
+	padding-top: 5px;
+	color: #FFF;
+	text-shadow: 8px 8px 0 #000,
+    -8px 8px 0 #000,
+    8px -8px 0 #000,
+    -8px -8px 0 #000;
+  transition: font-weight 0.5s ease;
 }
 
 .fullwidth{
@@ -68,8 +120,9 @@ header{
 }
 
 img.lp-front-img{
-	width:100%;
-	filter: grayscale(100%);
+	position: 0 0;
+	width:200%;
+	filter: grayscale(50%);
 }
 
 .motivation{
@@ -79,13 +132,23 @@ img.lp-front-img{
 	color: #fff;
 	padding:0 5vw;
 	text-shadow: 0px 0px 10px #000;
-	background-image: linear-gradient(rgba(191,26,16,.3),rgba(191,26,16,.3));
+	font-weight: bolder;
+	// background-image: linear-gradient(rgba(191,26,16,.3),rgba(191,26,16,.3));
 
 
 	h4{
 	font-family: 'Special Elite', cursive;
 	font-size: 65px;
 	margin-bottom: 0px;
+		#green{
+			color: #27AEB1;
+		}
+		#yellow{
+			color: #FAE20D;
+		}
+		#orange{
+			color:#03a9f4
+		}
 
 	}
 
@@ -131,4 +194,10 @@ footer{
 .clear-link{
 	text-decoration: none;
 	color:inherit;
+}
+
+.collection{
+	th, td {
+		text-align: center;
+	}
 }

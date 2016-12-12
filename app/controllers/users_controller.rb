@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   def information
   	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
 
-  	if @lasttrainclass != nil?
+		if @lasttrainclass != nil?
 	  	@lastbook = @lasttrainclass[-1]
-	  end
+		end
 
 		render "information.html.erb"
   end
@@ -18,12 +18,12 @@ class UsersController < ApplicationController
   end
 
   def bookings
-  	@bookings = Booking.where(user_id: current_user.id)
+  	@bookings = Booking.where(user_id: current_user.id).order(created_at: :desc)
 
-  	if @bookings == nil?
+		if @bookings == nil?
   		@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
 	  	@lastbook = @lasttrainclass[0]
-	  end
+		end
   	render "bookings.html.erb"
   end
 

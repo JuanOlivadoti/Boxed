@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   respond_to :json
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = Booking.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def new

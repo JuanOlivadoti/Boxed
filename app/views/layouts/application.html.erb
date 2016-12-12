@@ -10,15 +10,17 @@
   </head>
 
   <body>
-  	<header class="navbar" role="navigation">
-	  	<nav class="navbar-style red">
+  	<header class="row" role="navigation">
+	  	<nav class="nav">
 		    <div class="container">
-		    	<%= link_to "BOXED", root_path, {"id": "logo"} %>
+		    	<div id="row logo">
+		    		<a href="/" id="logo">B<img id="logo-img" src="/images/B2.png" alt="">XED</a>
+		    	</div>
 		        <% if user_signed_in? -%>
 		          <ul id="nav-mobile" class="right hide-on-med-and-down">
 		            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
-		            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
 		            <li><%= link_to 'Classes', trainclasses_path %></li>
+		            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
 		          </ul>
 			          <ul id="dropdown1" class="dropdown-content">
 			          <li><a href="/users/<%=current_user.id%>/athlete_info/information">Information</a></li>
@@ -28,6 +30,7 @@
 							</ul>
 		        <% else -%>
 		          <ul class="right hide-on-med-and-down">
+		          	<li>Log in or sign up to enter our app</li>
 		            <li><%= link_to 'Sign up', new_user_registration_path %></li>
 		            <li><%= link_to 'Sign in', new_user_session_path %></li>
 		          </ul>
