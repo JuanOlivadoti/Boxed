@@ -47,32 +47,33 @@ $(document).on('turbolinks:load', function(){
 		var um 		= response.um;
 		var exty 	= response.exercise_type;
 
-		var newtrack = `
-			<ul id="exe-list" data-t='${response.id}' class="collection">
-			  <li class="collection-item indigo darken-4">
-			  	<div class="row">
-			  		<div class="col s2">
-							<p>`+crea+`</p>
-			  		</div>
-			  		<div class="col s4">
-							<p>`+ exer +`</p>
-			  		</div>
-			  		<div class="col s1">
-							<p>`+ valu +`</p>
-			  		</div>
-			  		<div class="col s1">
-							<p>`+ um +`</p>
-			  		</div>
-			  		<div class="col s3">
-							<p>`+ exty +`</p>
-			  		</div>
-			  		<div class="col s1">
-							<button id="tracker-destroy"><a href='/users/${response.user_id}/my_fit_tracker' class='clear-link'>delete</a><i class="tiny material-icons">delete</i></button>
-			  		</div>
-			  	</div>
-			  </li>
-			</ul>
-		`;
+		console.log(crea);
+
+		var newtrack = '<ul id="exe-list" data-t="'+response.id+'" class="collection">' +
+			  '<li class="collection-item indigo darken-4">' +
+			  	'<div class="row">' +
+			  		'<div class="col s2">' +
+							'<p>'+crea+'</p>' +
+			  		'</div>' +
+			  		'<div class="col s4">' +
+							'<p>'+exer+'</p>' +
+			  		'</div>' +
+			  		'<div class="col s1">' +
+							'<p>'+valu+'</p>' +
+			  		'</div>' +
+			  		'<div class="col s1">' +
+							'<p>'+um+'</p>' +
+			  		'</div>' +
+			  		'<div class="col s3">' +
+							'<p>'+exty+'</p>' +
+			  		'</div>' +
+			  		'<div class="col s1">' +
+							'<button id="tracker-destroy"><a href="/users/${response.user_id}/my_fit_tracker" class="clear-link">delete</a><i class="tiny material-icons">delete</i></button>' +
+			  		'</div>' +
+			  	'</div>' +
+			  '</li>' +
+			'</ul>';
+
 		console.log(newtrack);
 		$('#tracks').prepend(newtrack);
 
