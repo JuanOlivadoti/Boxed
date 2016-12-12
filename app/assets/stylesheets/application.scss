@@ -85,12 +85,12 @@ header{
 }
 
 .nav {
-	transition-duration: 1s;
+	transition-duration: 0.5s;
 }
 
 #logo{		
 	font-family: 'Bungee', cursive;
-	font-size: 80px;
+	font-size: 100px;
 	width: 30%;
 	float: left;
 	padding-top: 5px;
@@ -99,6 +99,20 @@ header{
     -8px 8px 0 #000,
     8px -8px 0 #000,
     -8px -8px 0 #000;
+  transition: font-weight 0.5s ease;
+}
+
+#logo-styling{		
+	font-family: 'Bungee', cursive;
+	font-size: 40px;
+	width: 30%;
+	float: left;
+	padding-top: 5px;
+	color: #FFF;
+	text-shadow: 4px 4px 0 #000,
+    -4px 4px 0 #000,
+    4px -4px 0 #000,
+    -4px -4px 0 #000;
   transition: font-weight 0.5s ease;
 }
 
