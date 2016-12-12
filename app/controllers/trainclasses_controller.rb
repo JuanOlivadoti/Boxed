@@ -4,7 +4,7 @@ class TrainclassesController < ApplicationController
   # GET /trainclasses
   # GET /trainclasses.json
   def index
-    @trainclasses = Trainclass.all
+    @trainclasses = Trainclass.all.order(created_at: :asc)
   end
 
   # GET /trainclasses/1

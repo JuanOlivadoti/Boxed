@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 
-	console.log("ready");
+	console.log("fit tracker ready");
 
 	function handleErrors(errors){
 	console.log(errors);
@@ -40,7 +40,7 @@ $(document).ready(function(){
 	function fittrackcreate (response){
 		console.log("created!");
 		console.log(response);
-
+		// debugger
 		var crea 	= response.created_at;
 		var exer 	= response.exercise;
 		var valu 	= response.value;
@@ -48,7 +48,7 @@ $(document).ready(function(){
 		var exty 	= response.exercise_type;
 
 		var newtrack = `
-			<ul id="exe-list" data-t="<%=track.id%>" class="collection">
+			<ul id="exe-list" data-t='${response.id}' class="collection">
 			  <li class="collection-item indigo darken-4">
 			  	<div class="row">
 			  		<div class="col s2">
@@ -67,15 +67,15 @@ $(document).ready(function(){
 							<p>`+ exty +`</p>
 			  		</div>
 			  		<div class="col s1">
-							<button id="tracker-destroy"> <%= link_to "delete", destroy_user_my_fit_tracker_path(id: track.id, user_id: current_user.id), method: :delete, data: { confirm: 'Are you sure?'}, class: "clear-link" %><i class="tiny material-icons">delete</i></button>
+							<button id="tracker-destroy"><a href='/users/${response.user_id}/my_fit_tracker' class='clear-link'>delete</a><i class="tiny material-icons">delete</i></button>
 			  		</div>
-			  	</div>	
+			  	</div>
 			  </li>
 			</ul>
 		`;
 		console.log(newtrack);
 		$('#tracks').prepend(newtrack);
-		
+
 	}
 
 	$('#burn-tracker').click(function(event){
@@ -103,12 +103,8 @@ $(document).ready(function(){
 	function fittrackdestroy (response){
 		console.log("Burned!");
 		console.log(response);
-
-
-		
 	}
 
-	$('#exercise').click(function(){
 		$('#exercise').autocomplete({
 	  data: {
 	    "Back squat": null,
@@ -238,8 +234,10 @@ $(document).ready(function(){
 			"Tuck jump": null,
 			"Walking Lunge": null,
 			"Wall climb": null,
-	  }
-	});
-	});
-	
+	  },
+		select: function(event){
+			$(this).hide();
+		}
+	})
+
 });

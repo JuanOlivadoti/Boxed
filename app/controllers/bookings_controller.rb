@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
   def create
     @userid = params[:user_id]
-    @trainid = params[:format]
+    @trainid = params[:id]
     # binding.pry
 
     @tc = Trainclass.find_by(id: @trainid)

@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 
 	// =============== DATE PICKER
 	$('.btn-flat picker__close').click(function(event){
