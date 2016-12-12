@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   		resources :my_fit_tracker
   end
 
-  post '/users/:user_id/my_fit_tracker', to: "my_fit_tracker#create", as: :create_user_my_fit_tracker
+  post    '/users/:user_id/my_fit_tracker', to: "my_fit_tracker#create",  as: :create_user_my_fit_tracker
+  delete  '/users/:user_id/my_fit_tracker', to: "my_fit_tracker#destroy", as: :destroy_user_my_fit_tracker
 
-  # get '/users/:user_id/athlete_info/my_fit', to: "users#my_fit_tracker"
+  get '/users/:user_id/athlete_info/my_fit', to: "users#my_fit_tracker", as: :my_fit_tracker_index
 end

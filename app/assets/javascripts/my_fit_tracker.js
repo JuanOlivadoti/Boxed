@@ -38,8 +38,74 @@ $(document).ready(function(){
 	});
 
 	function fittrackcreate (response){
-		console.log("Show me the money!!");
+		console.log("created!");
 		console.log(response);
+
+		var crea 	= response.created_at;
+		var exer 	= response.exercise;
+		var valu 	= response.value;
+		var um 		= response.um;
+		var exty 	= response.exercise_type;
+
+		var newtrack = `
+			<ul id="exe-list" data-t="<%=track.id%>" class="collection">
+			  <li class="collection-item indigo darken-4">
+			  	<div class="row">
+			  		<div class="col s2">
+							<p>`+crea+`</p>
+			  		</div>
+			  		<div class="col s4">
+							<p>`+ exer +`</p>
+			  		</div>
+			  		<div class="col s1">
+							<p>`+ valu +`</p>
+			  		</div>
+			  		<div class="col s1">
+							<p>`+ um +`</p>
+			  		</div>
+			  		<div class="col s3">
+							<p>`+ exty +`</p>
+			  		</div>
+			  		<div class="col s1">
+							<button id="tracker-destroy"> <%= link_to "delete", destroy_user_my_fit_tracker_path(id: track.id, user_id: current_user.id), method: :delete, data: { confirm: 'Are you sure?'}, class: "clear-link" %><i class="tiny material-icons">delete</i></button>
+			  		</div>
+			  	</div>	
+			  </li>
+			</ul>
+		`;
+		console.log(newtrack);
+		$('#tracks').prepend(newtrack);
+		
+	}
+
+	$('#burn-tracker').click(function(event){
+		event.preventDefault();
+		var tId = $('#burn-tracker').data('track-id');
+		var uId = $('#burn-tracker').data('u-id');
+
+
+		console.log(tId);
+		console.log(uId);
+
+		$.ajax ({
+			type: "DELETE",
+			url: "/users/"+uId+"/my_fit_tracker/"+tId,
+			data: {
+				user_id: uId,
+				id: tId,
+			},
+			success: fittrackdestroy,
+			error: handleErrors
+		});
+
+	});
+
+	function fittrackdestroy (response){
+		console.log("Burned!");
+		console.log(response);
+
+
+		
 	}
 
 	$('#exercise').click(function(){
@@ -55,7 +121,6 @@ $(document).ready(function(){
 			"Dumbbell Deadlift": null,
 			"Dumbbell front squat": null,
 			"Dumbbell": null,
-			"Hang squat clean": null,
 			"Dumbbell Jerk": null,
 			"Dumbbell power clean": null,
 			"Dumbbell Push Press": null,

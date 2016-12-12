@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 	def my_fit_tracker
 		@my_fit_trackers = MyFitTracker.where(user_id: current_user.id)
 
-		redirect_to create_user_my_fit_tracker_path
+		render "my_fit"
 	end
 
 	private

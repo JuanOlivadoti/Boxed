@@ -1,6 +1,28 @@
 <% @my_fit_trackers.each do |track| %>
-	<p><%= track.exercise %></p>
-	<p><%= track.value %></p>
-	<p><%= track.um %></p>
-	<p><%= track.exercise_type %></p>
+
+<ul id="exe-list" data-t="<%=track.id%>" class="collection">
+  <li class="collection-item black">
+  	<div class="row">
+  		<div class="col s2">
+				<p><%= track.created_at.strftime("%m/%d/%Y %H:%M") %></p>
+  		</div>
+  		<div class="col s4">
+				<p><%= track.exercise %></p>
+  		</div>
+  		<div class="col s1">
+				<p><%= track.value %></p>
+  		</div>
+  		<div class="col s1">
+				<p><%= track.um %></p>
+  		</div>
+  		<div class="col s3">
+				<p><%= track.exercise_type %></p>
+  		</div>
+  		<div class="col s1">
+				<button id="tracker-destroy"> <%= link_to "delete", destroy_user_my_fit_tracker_path(id: track.id, user_id: current_user.id), method: :delete, data: { confirm: 'Are you sure?'}, class: "clear-link" %><i class="tiny material-icons">delete</i></button>
+  		</div>
+  	</div>	
+  </li>
+</ul>
+
 <% end%>
