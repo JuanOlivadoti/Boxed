@@ -9,40 +9,42 @@
       <% else %>
       <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
     <% end %>
-    <input id="js-tc-datepick" type="date" class="datepicker" placeholder="Pick single date">
+   
+    <div class="row">
+      <% @m[1].each do |trainclass| %>
+        <div class="col s3">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/03.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+              <p><button id="js-tc-show" class="waves-effect teal darken-4 btn" data-t-id="<%= trainclass.id%>">  <%= link_to 'Show', trainclass, {"data-t-id": trainclass.id, "data-u-id": current_user.id, class: "clear-link"} %></button></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"><b><%= trainclass.date %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Id.</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Quota</th>
-          <th>Capacity</th>
-          <th>Train class type</th>
-          <th>Coach</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @trainclasses.each do |trainclass| %>
-          <tr>
-            <td><%= trainclass.id %></td>
-            <td><%= trainclass.date %></td>
-            <td><%= trainclass.datetime %></td>
-            <td><%= trainclass.quota %></td>
-            <td><%= trainclass.capacity %></td>
-            <td><%= trainclass.train_class_type %></td>
-            <td><%= trainclass.coach_id %></td>
-            <td><button id="js-tc-show" class="waves-effect teal darken-4 btn" data-t-id="<%= trainclass.id%>">  <%= link_to 'Show', trainclass, {"data-t-id": trainclass.id, "data-u-id": current_user.id, class: "clear-link"} %></button></td>
-            <td><button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button></td>
-            <td><button id="js-tc-destroy" class="waves-effect teal darken-4 btn"> <%= link_to 'Destroy', trainclass, method: :delete, data: { confirm: 'Are you sure?'}, class: "clear-link" %></button></td>
-            <td><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></td>
-          </tr>
-            <% end %>
-        </tbody>
-    </table>
-    <br>
+              <ul>
+                <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li>
+                <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li><br>
+                <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+              </ul>
+              <div class="row">
+                <div class="col s6">
+                  <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                </div>
+                <div class="col s6">
+                  <button id="js-tc-show" class="waves-effect teal darken-4 btn" data-t-id="<%= trainclass.id%>">  <%= link_to 'Show', trainclass, {"data-t-id": trainclass.id, "data-u-id": current_user.id, class: "clear-link"} %></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 </section>

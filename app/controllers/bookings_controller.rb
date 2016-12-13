@@ -15,7 +15,6 @@ class BookingsController < ApplicationController
   def create
     @userid = params[:user_id]
     @trainid = params[:id]
-    # binding.pry
 
     @tc = Trainclass.find_by(id: @trainid)
 
@@ -35,12 +34,10 @@ class BookingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_booking
       @booking = Booking.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
       @userid = params[:user_id]
       @trainid = params[:format]

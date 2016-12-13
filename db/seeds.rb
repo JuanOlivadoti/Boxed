@@ -8,17 +8,17 @@
 
 7.times do |f|
 
-		date = Date.today+4
+		date = Date.today+(6+f)
 
-	10.times do |i|
+	12.times do |i|
 
 		trainclass = Trainclass.create!({
 							date: date,
-							datetime: Time.now,
+							datetime: Time.new(2015, 12, 19, 9, 00, 0).advance(hours: i),
 							capacity: 15,
 							train_class_type: rand(0..2),
 							coach_id: 1,
-							quota: i			
+							quota: rand(0..15),			
 		})
 	end
 end
