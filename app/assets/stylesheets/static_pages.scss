@@ -16,13 +16,13 @@
 	background: url("/images/03.jpg") center center no-repeat;
 	background-size: cover;
 
-  -webkit-filter: grayscale(50%);
-  -moz-filter: grayscale(50%);
-  -o-filter: grayscale(50%);
-  -ms-filter: grayscale(50%);
-  filter: grayscale(50%);
+  // -webkit-filter: grayscale(50%);
+  // -moz-filter: grayscale(50%);
+  // -o-filter: grayscale(50%);
+  // -ms-filter: grayscale(50%);
+  // filter: grayscale(50%);
   #info-nav{
-  	background-color: rgba(21,101,192,0.4);
+  	background-color: rgba(255,255,255,0);
 
   }
 }
@@ -41,6 +41,13 @@
   -ms-filter: grayscale(50%);
   filter: grayscale(50%);
   height: 100vh;
+}
+
+#form-info{
+	.form-imp{
+
+		margin:0;
+	}
 }
 
 .form-bckg{

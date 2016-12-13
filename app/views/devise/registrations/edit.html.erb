@@ -1,71 +1,85 @@
 <section id="lp-front" class="fullwidth trainclass">
   <div class="container">
-    
-    <h1 id="usr-nm" class="center-align" ><%= current_user.name %></h1>
-    <div class="row">
-      <div class="col s10 offset-s1">
+          <div class="col s6">
+        <h1 id="logo-styling">Inf<span class="red-text">or</span>mation</h1>
+      </div>
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, id: "form-info") do |f| %>
-          <%= devise_error_messages! %>
-          <div class="row">
-            <div class="col s6">
-              <div class="field">
-                <%= f.label :name %><br />
-                <%= f.text_field :name, autofocus: true, autocomplete: "on"%>
-              </div>
+      <%= devise_error_messages! %>
 
-              <div class="field">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true %>
-              </div>
-
+      <div class="row">
+        <div class="col s5 offset-s1 grey-text text-darken-3">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, id: "form-info") do |f| %>
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">person</i>
+                <h5><%= f.text_field :name, autofocus: true, autocomplete: "on", style: "margin:0"%></h5>
+                <p>Name</p>
+              </li>
+              <li class="collection-item avatar">
+                <i class="large material-icons circle red">email</i>
+                <h5><%= f.email_field :email, autofocus: true, style: "margin:0" %></h5>
+                <p>Email</p>
+              </li>
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">today</i>
+                <h5><%= f.date_field :bday, autofocus: true, style: "margin:0" %></h5>
+                <p>Birthday</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col s5 grey-text text-darken-3">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">assignment_ind</i>
+                <h5>Number <%=current_user.id%></h5>
+                <p>Afiliation</p>
+              </li>
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">recent_actors</i>
+                <h5><%= f.text_field :dni, autofocus: true, style: "margin:0" %></h5>
+                <p>DNI</p>
+              </li>
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">today</i>
+                <h5><%= f.date_field :medcert, autofocus: true, style: "margin:0" %></h5>
+                <p>Medical certificate validity</p>
+              </li>
+            </ul>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col s5 offset-s1">
+          <div class="collection">
+            <div class="collection-item avatar">
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
-
-              <div class="field">
-                <%= f.label :password %> 
-                <%= f.password_field :password, autocomplete: "off", placeholder: "leave blank if you don't want to change it" %>
-                <% if @minimum_password_length %>
-                  <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
-                <% end %>
-              </div>
-
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off" %>
-              </div>
-
-              <div class="field">
-                <%= f.label :current_password %>
-                <%= f.password_field :current_password, autocomplete: "off", placeholder: "we need your current password to confirm your changes" %>
-              </div>
-            </div> 
-            <div class="col s6">
-              <div class="field">
-                <%= f.label :identification %><br />
-                <%= f.text_field :dni, autofocus: true %>
-              </div>
-
-              <div class="field">
-                <%= f.label :birthday %><br />
-                <%= f.date_field :bday, autofocus: true %>
-              </div>
-
-              <div class="field">
-                <%= f.label :medical_certificate %><br />
-                <%= f.date_field :medcert, autofocus: true %>
-              </div>
+              <%= f.password_field :password, autocomplete: "off", placeholder: "leave blank if you don't want to change it" %>
+              <%= f.label :password %>
             </div>
           </div>
-
-          <button class="actions waves-effect waves-light btn"><%= f.submit "Update" %></button>
+        </div>
+        <div class="col s5">
+          <div class="collection">
+            <div class="collection-item avatar">
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <%= f.label :password_confirmation %>
+            </div>
+          </div>
+        </div>
+        <div class="col s8 offset-s1">
+          <div class="collection">
+            <div class="collection-item avatar">
+              <%= f.password_field :current_password, autocomplete: "off", placeholder: "we need your current password to confirm your changes" %>
+              <%= f.label :current_password %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="actions waves-effect waves-light btn"><%= f.submit "Update" %></button>
           <button class="actions waves-effect waves-light btn"><%= link_to "Back", athelet_info_path(current_user.id), class: "clear-link" %></button>
           <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "waves-effect waves-light btn red right" %>
-          
-        <% end %>
+      <% end %> 
+
       </div>
-    </div>
-  </div>
 </section>

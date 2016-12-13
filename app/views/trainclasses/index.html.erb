@@ -6,36 +6,41 @@
       <div class="col s6">
         <h1 id="logo-styling">Tra<span class="red-text">in</span>classes</h1>
       </div>
-      <div class="col s6">
+      <div id="key-buttons" class="col s6">
         <% @tcgrouped.keys.each do |i| %>
           <a href="#modal<%= (i+1).strftime("%d") %>" data-day="<%= (i+1).strftime("%d") %>" class="btn square red"><%= (i+1).strftime("%d") %></a>
         <% end %>
         <% unless current_user.user_type == [0..1] %>
-          <a class="btn-floating btn-large waves-effect waves-light red" href="/trainclasses/new"><i class="material-icons">add</i></a>
+          <a class="btn-floating btn-large waves-effect waves-light orange tooltipped" data-position="bottom" data-delay="50" data-tooltip="Add new trainclass day" href="/trainclasses/new"><i class="material-icons">add</i></a>
           
           <% else %>
           <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
         <% end %>
-        <h5 class="center-align">Available <b class="red-text">TRAINING</b> days!!</h5>
+        <h5>Available <b class="red-text">TRAINING</b> days of the week!!</h5>
       </div>
     </div><!-- -- day selection buttons end -->
 
     <div id="tcs" class="row"><!-- COLLAPSIBLE -->
       <div class="col s10 offset-s1">
-      <h3><%=@tcgrouped.keys.first.strftime("%B %d th")%></h3>
+      <h3><%=(@tcgrouped.keys.first+1).strftime("%B %d th")%></h3>
           <ul class="collapsible" data-collapsible="accordion">
             <% @m[1].each do |trainclass| %>
             <li>
               <div class="collapsible-header">
                 <i class="material-icons red-text">toc</i>
-                <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %></span><span class="card-title activator grey-text text-darken-4 right"><b><%= trainclass.datetime.to_s(:time) %></b></span>
+                <span class="col s3 card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %></span>
+                  <div class="col s5 progress red lighten-3">
+                    <div class="determinate red" style="width: <%= trainclass.quota*(100/trainclass.capacity) %>%"></div>
+                  </div>
+                <span class="card-title activator grey-text text-darken-4 right"><b><%= trainclass.datetime.to_s(:time) %></b></span>
               </div>
-              <div class="collapsible-body grey lighten-3">
+              <div class="collapsible-body grey darken-3 col-height">
                 <ul>
-                  <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
-                  <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
-                  <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
-                  <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  <li class="col s3 center-align"><b>Class: <%= trainclass.train_class_type %></b></li>
+                  <li class="col s3 center-align">Quota: <%= trainclass.quota %> / <%= trainclass.capacity %></li>
+                  <li class="col s3 center-align">Coach: <%= trainclass.coach_id %></li><br>
+                  <li class="col s3 right"><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "btn-floating btn-large waves-effect waves-light red ", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></li>
+                  <li class="center-align"><b>WOD:</b></li>
                 </ul>
               </div>
             </li>
@@ -46,7 +51,7 @@
     
     <!-- MODALS -->
     <div id="modal<%=(@m[0]+1).strftime("%d")%>" class="modal">
-      <div class="modal-content">
+      <div class="modal-content grey darken-4">
 
         <div class="row">
           <% @m[1].each do |trainclass| %>

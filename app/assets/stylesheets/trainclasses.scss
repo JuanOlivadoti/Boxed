@@ -13,6 +13,15 @@
 	overflow-y: scroll;
 	height:70vh;
 	width:99vw;
+	h3{
+		background-color:rgba(0,0,0, 0.3)
+	}
+	.progress{
+		top:12px;
+	}
+	.col-height{
+		height:100px;
+	}
 }
 .back{
 	background-size:cover;
@@ -50,7 +59,7 @@ footer{
 	}
 }
 
-#form-info, #edit_user{
-	padding:25px;
-	background-color: rgba(190,190,190, 0.5)
-}
+// #form-info, #edit_user{
+// 	padding:25px;
+// 	background-color: rgba(190,190,190, 0.5)
+// }

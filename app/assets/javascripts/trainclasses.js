@@ -10,6 +10,16 @@ $(document).on('turbolinks:load', function(){
     // onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
   });
 
+  // DATE BUTTONS CSS
+  // $('#key-buttons a:first-child').toggleClass('red');
+  $('.tooltipped').tooltip({delay: 50});
+  
+  $('#key-buttons a').hover(function(){
+  	$(this).toggleClass('red');
+  }, function(){
+  	$(this).toggleClass('red');
+  });
+
 	function handleErrors(errors){
 	console.log(errors);
 	}
