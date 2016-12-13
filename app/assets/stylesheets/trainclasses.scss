@@ -2,12 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .trainclass{
-	background: url("/images/Post-Header-Image.jpg") center center no-repeat;
+	background: url("/images/03.jpg") center center no-repeat;
 	background-size:cover;
 	padding-top:70px;
 	color:#fff;
+	height: 100vh;
 }
-
+#tcs{	
+	position:fixed;
+	overflow-y: scroll;
+	height:70vh;
+	width:99vw;
+}
 .back{
 	background-size:cover;
 	padding-top:70px;

@@ -16,16 +16,16 @@
           <% else %>
           <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
         <% end %>
-        <h5 class="center-align">Available classes days in <b class="red-text">RED</b></h5>
+        <h5 class="center-align">Available <b class="red-text">TRAINING</b> days!!</h5>
       </div>
     </div><!-- -- day selection buttons end -->
 
-    <div class="row"><!-- COLLAPSIBLE -->
+    <div id="tcs" class="row"><!-- COLLAPSIBLE -->
       <div class="col s10 offset-s1">
       <h3><%=@tcgrouped.keys.first.strftime("%B %d th")%></h3>
-          <ul class="collapsible popout" data-collapsible="accordion">
+          <ul class="collapsible" data-collapsible="accordion">
             <% @m[1].each do |trainclass| %>
-            <li class="col s6">
+            <li>
               <div class="collapsible-header">
                 <i class="material-icons red-text">toc</i>
                 <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %></span><span class="card-title activator grey-text text-darken-4 right"><b><%= trainclass.datetime.to_s(:time) %></b></span>
