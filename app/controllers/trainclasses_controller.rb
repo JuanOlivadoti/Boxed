@@ -21,6 +21,8 @@ class TrainclassesController < ApplicationController
     sun = Hash[*@tcgrouped.to_a.at(6)]
       @su = sun.first{0}
 
+    @dte = Date.current()
+
   end
 
   def show

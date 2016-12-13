@@ -2,81 +2,329 @@
   <div class="container">
     <p id="notice"><%= notice %></p>
 
-    <h1>Trainclasses</h1>
-    
-    <% unless current_user.user_type == [0..1] %>
-      <button class="actions waves-effect red waves-light btn"><%= link_to 'New Trainclass', new_trainclass_path, class: "clear-link" %></button>
-      <% else %>
-      <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
-    <% end %>
+    <div class="row"><!-- DAY SELECTION BUTTONS -->
+      <div class="col s6">
+        <h1 id="logo-styling">Tra<span class="red-text">in</span>classes</h1>
+      </div>
+      <div class="col s6">
+        <% @tcgrouped.keys.each do |i| %>
+          <a href="#modal<%= (i+1).strftime("%d") %>" data-day="<%= (i+1).strftime("%d") %>" class="btn square red"><%= (i+1).strftime("%d") %></a>
+        <% end %>
+        <% unless current_user.user_type == [0..1] %>
+          <a class="btn-floating btn-large waves-effect waves-light red" href="/trainclasses/new"><i class="material-icons">add</i></a>
+          
+          <% else %>
+          <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
+        <% end %>
+        <h5 class="center-align">Available classes days in <b class="red-text">RED</b></h5>
+      </div>
+    </div><!-- -- day selection buttons end -->
 
-    <div class="row">
-      <div class="col s4 m2">
-        <div class="card-panel green">
-          <h5 class="center-align"><%= @m[0].strftime("%d-%m-%Y") %> </h5>
-        </div>
-      </div>  
-      <div class="col s4 m2">
-        <div class="card-panel green">
-          <h5 class="center-align"><%= @t[0].strftime("%d-%m-%Y") %> </h5>
-        </div>
-      </div>  
-      <div class="col s4 m2">
-        <div class="card-panel green">
-          <h5 class="center-align"><%= @w[0].strftime("%d-%m-%Y") %> </h5>
-        </div>
-      </div>  
-      <div class="col s4 m2">
-        <div class="card-panel green">
-          <h5 class="center-align"><%= @th[0].strftime("%d-%m-%Y") %> </h5>
-        </div>
-      </div>  
-      <div class="col s4 m2">
-        <div class="card-panel green">
-          <h5 class="center-align"><%= @f[0].strftime("%d-%m-%Y") %> </h5>
-        </div>
-      </div>  
-      <div class="col s4 m2">
-        <div class="card-panel green">
-          <h5 class="center-align">Weekend</h5>
-        </div>
-      </div>  
-    </div>
+    <div class="row"><!-- COLLAPSIBLE -->
+      <div class="col s10 offset-s1">
+      <h3><%=@tcgrouped.keys.first.strftime("%B %d th")%></h3>
+          <ul class="collapsible popout" data-collapsible="accordion">
+            <% @m[1].each do |trainclass| %>
+            <li class="col s6">
+              <div class="collapsible-header">
+                <i class="material-icons red-text">toc</i>
+                <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %></span><span class="card-title activator grey-text text-darken-4 right"><b><%= trainclass.datetime.to_s(:time) %></b></span>
+              </div>
+              <div class="collapsible-body grey lighten-3">
+                <ul>
+                  <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                  <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                  <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                  <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                </ul>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+      </div>
+    </div><!-- -- collapsible end -->
     
-    <div class="row">
-      <% @m[1].each do |trainclass| %>
-        <div class="col s3">
-          <div class="card samall">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/03.jpg">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-              <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+    <!-- MODALS -->
+    <div id="modal<%=(@m[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content">
 
-              <ul>
-                <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
-                <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
-                <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
-                <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
-              </ul>
-              <div class="row">
-                <div class="col s6">
-                  <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+        <div class="row">
+          <% @m[1].each do |trainclass| %>
+            <div class="col s4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/03.jpg">
                 </div>
-                <div class="col s6">
-                  <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
-                  <!-- <button id="js-tc-show" class="waves-effect teal darken-4 btn" data-t-id="<%= trainclass.id%>">  <%= link_to 'Show', trainclass, {"data-t-id": trainclass.id, "data-u-id": current_user.id, class: "clear-link"} %></button> -->
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+
+                  <ul>
+                    <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                    <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                    <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                    <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  </ul>
+                  <div class="row">
+                    <div class="col s6">
+                      <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+                    </div>
+                    <div class="col s6">
+                      <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+
+      </div>
     </div>
+
+        <div id="modal<%=(@t[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content">
+
+        <div class="row">
+          <% @t[1].each do |trainclass| %>
+            <div class="col s4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/03.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+
+                  <ul>
+                    <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                    <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                    <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                    <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  </ul>
+                  <div class="row">
+                    <div class="col s6">
+                      <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+                    </div>
+                    <div class="col s6">
+                      <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+        <div id="modal<%=(@w[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content">
+
+        <div class="row">
+          <% @w[1].each do |trainclass| %>
+            <div class="col s4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/03.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+
+                  <ul>
+                    <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                    <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                    <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                    <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  </ul>
+                  <div class="row">
+                    <div class="col s6">
+                      <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+                    </div>
+                    <div class="col s6">
+                      <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+        <div id="modal<%=(@th[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content">
+
+        <div class="row">
+          <% @th[1].each do |trainclass| %>
+            <div class="col s4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/03.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+
+                  <ul>
+                    <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                    <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                    <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                    <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  </ul>
+                  <div class="row">
+                    <div class="col s6">
+                      <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+                    </div>
+                    <div class="col s6">
+                      <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+        <div id="modal<%=(@f[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content">
+
+        <div class="row">
+          <% @f[1].each do |trainclass| %>
+            <div class="col s4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/03.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+
+                  <ul>
+                    <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                    <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                    <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                    <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  </ul>
+                  <div class="row">
+                    <div class="col s6">
+                      <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+                    </div>
+                    <div class="col s6">
+                      <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+        <div id="modal<%=(@s[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content">
+
+        <div class="row">
+          <% @s[1].each do |trainclass| %>
+            <div class="col s4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/03.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+
+                  <ul>
+                    <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                    <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                    <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                    <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  </ul>
+                  <div class="row">
+                    <div class="col s6">
+                      <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+                    </div>
+                    <div class="col s6">
+                      <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+        <div id="modal<%=(@su[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content">
+
+        <div class="row">
+          <% @su[1].each do |trainclass| %>
+            <div class="col s4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/03.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
+
+                  <ul>
+                    <li class="grey-text text-darken-4"><b>Class: <%= trainclass.train_class_type %></b></li>
+                    <li class="grey-text text-darken-4">Quota: <%= trainclass.quota %></li>
+                    <li class="grey-text text-darken-4">Max quota: <%= trainclass.capacity %></li>
+                    <li class="grey-text text-darken-4">Coach: <%= trainclass.coach_id %></li><br>
+                  </ul>
+                  <div class="row">
+                    <div class="col s6">
+                      <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "waves-effect teal darken-4 btn", "data-t-id": trainclass.id, "data-u-id": current_user.id } %>
+                    </div>
+                    <div class="col s6">
+                      <button id="js-tc-edit" class="waves-effect teal darken-4 btn"> <%= link_to 'Edit', edit_trainclass_path(trainclass), {"data-t-id": trainclass.id, "data-u-id": current_user.id,class: "clear-link"} %></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+    <!-- -- modals end -->
   </div>
 
 </section>

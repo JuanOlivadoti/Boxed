@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 	
 	function handleErrors(errors){
 	console.log(errors);

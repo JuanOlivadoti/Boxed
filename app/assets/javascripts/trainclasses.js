@@ -1,5 +1,15 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 	
+  // MODAL INITIALIZATION
+  $('.modal').modal();
+
+  // COLLAPSIBLE INITIALIZATION
+  $('.collapsible').collapsible({
+    accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    // onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
+    // onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
+  });
+
 	function handleErrors(errors){
 	console.log(errors);
 	}
@@ -34,5 +44,9 @@ $(document).ready(function(){
 		window.location.href='/trainclasses/' + tId;
 
 	}
+
+  // TRAINCLASSES SHOW
+
+
 
 });
