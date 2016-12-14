@@ -1,3 +1,6 @@
+$font-robo:				Roboto;
+$boxed-red: #F44336;
+
 #lp-front{
 	top:60px;
 }
@@ -13,37 +16,41 @@
 // STATIC PAGES INFORMATION 
 
 #info{
-	background: url("/images/03.jpg") center center no-repeat;
 	background-size: cover;
 
-  // -webkit-filter: grayscale(50%);
-  // -moz-filter: grayscale(50%);
-  // -o-filter: grayscale(50%);
-  // -ms-filter: grayscale(50%);
-  // filter: grayscale(50%);
   #info-nav{
   	background-color: rgba(255,255,255,0);
 
   }
+
   h5{
-  	font: light 25px/1.4 Open Sans;
+  	font: light 25px/1.4 $font-robo;
   }
 }
 
+.info1{
+	background: url("/images/info.jpg") center center no-repeat;
+}
+
+.book1{
+	background: url("/images/book.jpg") center center no-repeat;
+}
+
+.trainc1{
+	background: url("/images/trainc.jpg") center center no-repeat;
+}
+.tracker{
+	background: url("/images/tracker.jpg") center center no-repeat;	
+}
+.generic{
+	background: url("/images/generic.jpg") center center no-repeat;	
+}
 
 
 // DEVISE CUSTOM 
 
 .dev-view{
-	background: url("/images/02.jpg") center center no-repeat;
-	background-size:cover;
-
-	-webkit-filter: grayscale(50%);
-  -moz-filter: grayscale(50%);
-  -o-filter: grayscale(50%);
-  -ms-filter: grayscale(50%);
-  filter: grayscale(50%);
-  height: 100vh;
+	background: url("/images/push.jpg") center center no-repeat;	
 }
 
 #form-info{
@@ -57,7 +64,7 @@
 		margin: 0rem 0 1rem 0;
 		.collection-item{
 			height:115px;
-			font-family: Open Sans;
+			font-family: $font-robo;
 			color: #424242 !important;
 			font-weight: 300;
 			font-size: 15px;
@@ -88,4 +95,7 @@
 		color:#fff;
 		font-size: 22px; 
 	}
+}
+.btn-center{
+	margin:10px;
 }

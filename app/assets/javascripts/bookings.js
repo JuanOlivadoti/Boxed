@@ -3,18 +3,21 @@ $(document).on('turbolinks:load', function(){
 	function handleErrors(errors){
 	console.log(errors);
 	}
-
+	// BURN HOVER BUTTONS
+	$('td a').hover(function(){
+  	$(this).toggleClass('red');
+  	console.log("in");
+  }, function(){
+  	$(this).toggleClass('red');
+  	console.log("out");
+  });
 	// USER DESTROY BOOKING
 
 	$('#js-bks-burn').click(function(event){
-		// event.preventDefault();
 		var uId = $(event.target).data('u-id');
 		var tId = $(event.target).data('t-id');
 		var bId = $(event.target).data('b-id');
 
-		// console.log(uId);
-		// console.log(tId);
-		// console.log(bId);
 
 		$.ajax ({
 			type: "DELETE",
@@ -27,7 +30,6 @@ $(document).on('turbolinks:load', function(){
 	});
 
 	function burn (response){
-		// console.log("Burn!!");
 		var bId = $('#js-bks-burn').data('b-id');
 
 		console.log(response);

@@ -16,12 +16,15 @@
 
 @import 'materialize';
 
-@import url('https://fonts.googleapis.com/css?family=Bungee|Open+Sans:300,400,700|Special+Elite');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Roboto:300,300i,400,500i,700,700i|Special+Elite');
+
+$font-robo:				Roboto;
+$boxed-red: #F44336;
 
 html, body, .block {
   height: 100vh;
   margin:0;
-	font-family: Open Sans;
+	font-family: $font-robo;
 	font-variant:uppercase;
 	select{
 		display:block;
@@ -30,7 +33,17 @@ html, body, .block {
 		font-weight: lighter;
 	}
 }
+.italic{
+	font-style: italic;
+}
 
+.bolder{
+	font-weight:700;
+}
+
+.thin{
+	font-weight:300;
+}
 
 header{
 	width:100%;
@@ -46,10 +59,10 @@ header{
 		float: left;
 		padding-top: 5px;
 		color: #FFF;
-		text-shadow: 3px 3px 0 #000,
-	    -3px 3px 0 #000,
-	    3px -3px 0 #000,
-	    -3px -3px 0 #000;
+		// text-shadow: 3px 3px 0 #000,
+	 //    -3px 3px 0 #000,
+	 //    3px -3px 0 #000,
+	 //    -3px -3px 0 #000;
 	  
 	}
 	#logo-img{
@@ -61,10 +74,10 @@ header{
 		left: 3px;
 		top:3px;
 		font-weight: bolder;
-		text-shadow: 5px 5px 0 #000,
-	    -5px 5px 0 #000,
-	    5px -5px 0 #000,
-	    -5px -5px 0 #000;
+		// text-shadow: 5px 5px 0 #000,
+	 //    -5px 5px 0 #000,
+	 //    5px -5px 0 #000,
+	 //    -5px -5px 0 #000;
 		background-color: rgba(255,255,255,0);
 		transition: font-weight 0.7s ease;
 		#logo-img:hover{
@@ -75,9 +88,11 @@ header{
 	
 	.nav-scroll{
 		background-color: rgba(255,255,255,1);
-		
+		#logo{
+			color:#555;
+		}
 		a{
-			color:#000;
+			color:#555;
 		}
 		
 		a:hover{
@@ -92,7 +107,7 @@ header{
 
 
 		a{
-			font: bold 1rem Open Sans;
+			font: bold 1rem $font-robo;
 			text-transform: uppercase;
 			line-height: 63px;
 			transition: color 0.7s ease;
@@ -115,11 +130,11 @@ header{
 	float: left;
 	padding-top: 5px;
 	color: #FFF;
-	text-shadow: 8px 8px 0 #000,
-    -8px 8px 0 #000,
-    8px -8px 0 #000,
-    -8px -8px 0 #000;
-  transition: font-weight 0.5s ease;
+// 	text-shadow: 8px 8px 0 #000,
+//     -8px 8px 0 #000,
+//     8px -8px 0 #000,
+//     -8px -8px 0 #000;
+//   transition: font-weight 0.5s ease;
 }
 
 #logo-styling{		
@@ -260,7 +275,7 @@ h2.header{
   font-weight: bold;
 }
 .square:hover{
-	color:#F44336;
+	color:$boxed-red;
 	background-color: #fff;
 }
 

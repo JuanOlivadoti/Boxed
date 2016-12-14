@@ -39,6 +39,7 @@ class TrainclassesController < ApplicationController
 
   def create
     @trainclass = Trainclass.new(trainclass_params)
+    
 
     respond_to do |format|
       if @trainclass.save
