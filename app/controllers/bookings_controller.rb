@@ -21,11 +21,14 @@ class BookingsController < ApplicationController
     if @tc.quota < (@tc.capacity + 1)
       @booking = Booking.create(user_id: @userid, trainclass_id: @trainid)
       @tc.update(quota: (@tc.quota + 1))
+
+      redirect_to "/users/"+@userid+"/athlete_info/bookings"
+
     else
-      render :new, notice: "The quota is full"
+      redirect_to trainclasses_path, notice: "The quota is full"
+
     end
     
-    redirect_to "/users/"+@userid+"/athlete_info/bookings"
   end
 
   def destroy

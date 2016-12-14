@@ -15,12 +15,6 @@ $(document).on('turbolinks:load', function(){
 		var um = $('#um').val();
 		var exty = $('#exercise_type').val();
 
-		// console.log(uId);
-		// console.log(exer);
-		// console.log(valu);
-		// console.log(um);
-		// console.log(exty);
-
 		$.ajax ({
 			type: "POST",
 			url: "/users/"+uId+"/my_fit_tracker",

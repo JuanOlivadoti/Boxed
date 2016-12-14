@@ -52,6 +52,25 @@
 		margin:0;
 	}
 }
+#info, #edit-scroll{
+	.collection{
+		margin: 0rem 0 1rem 0;
+		.collection-item{
+			height:115px;
+			font-family: Open Sans;
+			color: #424242 !important;
+			font-weight: 300;
+			font-size: 15px;
+			label{
+				color: #424242 !important;
+				font-size: 15px;
+			}
+		}
+	}
+	table{
+		background-color:#fff;
+	}
+}
 
 .form-bckg{
 	background-color: rgba(0,0,0,0.2);
