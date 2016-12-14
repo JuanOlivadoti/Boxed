@@ -1,4 +1,4 @@
-<section class="fullwidth trainclass">
+<section class="fullwidth trainclass trainc1">
   <div class="container">
     <p id="notice"><%= notice %></p>
 
@@ -16,7 +16,7 @@
           <% else %>
           <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
         <% end %>
-        <h5 class="light-text">Available <b class="red-text">TRAINING</b> days of the week!!</h5>
+        <h5 class="light-text italic">Available <b class="red-text 700i">TRAINING</b> days of the week!!</h5>
       </div>
     </div><!-- -- day selection buttons end -->
 
@@ -63,7 +63,7 @@
             <div class="col s4">
               <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="images/03.jpg">
+                  <img class="activator" src="images/1.jpg">
                 </div>
                 <div class="card-content">
                   <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span><br>
@@ -103,11 +103,11 @@
             <div class="col s4">
               <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="images/03.jpg">
+                  <img class="activator" src="images/2.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span> <br>
+                  <span class="activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
@@ -143,11 +143,11 @@
             <div class="col s4">
               <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="images/03.jpg">
+                  <img class="activator" src="images/3.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span><br>
+                  <span class="activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
@@ -183,11 +183,11 @@
             <div class="col s4">
               <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="images/03.jpg">
+                  <img class="activator" src="images/4.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span><br>
+                  <span class="activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
@@ -223,11 +223,11 @@
             <div class="col s4">
               <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="images/03.jpg">
+                  <img class="activator" src="images/5.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span><br>
+                  <span class="activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
@@ -263,11 +263,11 @@
             <div class="col s4">
               <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="images/03.jpg">
+                  <img class="activator" src="images/6.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span><br>
+                  <span class="activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
@@ -303,11 +303,11 @@
             <div class="col s4">
               <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="images/03.jpg">
+                  <img class="activator" src="images/7.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span><br>
+                  <span class="activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>

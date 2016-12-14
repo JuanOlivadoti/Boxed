@@ -1,11 +1,11 @@
-<section class="fullwidth trainclass">
+<section class="fullwidth trainclass generic">
   <div class="container">
 	
 	<h1>New Trainclass</h1>
 
 	<%= render 'form', trainclass: @trainclass %>
 
-	<%= link_to 'Back', trainclasses_path %>
+	<b><%= link_to '<<', trainclasses_path, class: "btn-floating btn-large waves-effect waves-light red right" %></b>
 
 	</div>
 </section>
