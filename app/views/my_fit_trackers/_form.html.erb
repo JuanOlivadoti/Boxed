@@ -20,10 +20,17 @@
     <div class="row white">
       <div class="input-field col s12 grey-text text-darken-4">
         <i class="material-icons prefix red-text">settings_applications</i>
-        <input type="text" id="exercise_type" class="">
-        <label for="exercise_type">Excercise type</label>
+        <div class="col s10 offset-s1">
+          <select id="exercise_type">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="Strength">Strength</option>
+            <option value="Resistance">Resistance</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
       </div>
     </div>
+    
     <button id="submit" data-user-id="<%= current_user.id %>" class="btn waves-effect waves-light red" type="submit" name="action">STORE
         <i class="material-icons right">send</i>
       </button>

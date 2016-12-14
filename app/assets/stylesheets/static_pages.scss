@@ -1,6 +1,37 @@
 $font-robo:				Roboto;
 $boxed-red: #F44336;
 
+
+
+// HOME PAGE
+#para2{
+	height:60vh;
+
+	#middle-section{
+		background-color:rgba(244,67,54, 0.8);
+		position:relative;
+		top:5vh;
+		height:10vh;
+	}
+	#exp{
+		background-color:rgba(244,67,54, 0.8);
+		position:relative;
+		top:5vh;
+		height: 35vh;
+	}
+	.sep-x{
+		position:relative;
+		top:40px;
+	}
+}
+#para3{
+	#up{
+		position:relative;
+		top:25vh;
+		z-index:500;
+	}
+}
+
 #lp-front{
 	top:60px;
 }
@@ -8,10 +39,6 @@ $boxed-red: #F44336;
 .top-sep{
 	padding-top:70px;
 }
-
-// HOME PAGE
-
-
 
 // STATIC PAGES INFORMATION 
 

@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', function(){
   	$(this).toggleClass('red');
   	console.log("out");
   });
+
 	// USER DESTROY BOOKING
 
 	$('#js-bks-burn').click(function(event){

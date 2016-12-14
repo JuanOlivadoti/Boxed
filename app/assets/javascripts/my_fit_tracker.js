@@ -4,8 +4,10 @@ $(document).on('turbolinks:load', function(){
 
 	function handleErrors(errors){
 	console.log(errors);
-
 	}
+
+  // SELECT EXERCISE TYPE
+// $('select').material_select();
 
 	$('#submit').click(function(event){
 		event.preventDefault();
@@ -13,7 +15,7 @@ $(document).on('turbolinks:load', function(){
 		var exer = $('#exercise').val();
 		var valu = $('#value').val();
 		var um = $('#um').val();
-		var exty = $('#exercise_type').val();
+		var exty = $('#exercise_type option:selected').val();
 
 		$.ajax ({
 			type: "POST",
