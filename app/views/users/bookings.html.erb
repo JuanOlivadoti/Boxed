@@ -24,7 +24,7 @@
                     <td><%= booking.trainclass_id %></td>
                     <td><%= booking.trainclass_id %></td>
                   
-                    <td><%= link_to 'Burn!!', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?'}, class: "waves-effect waves-teal btn-flat" %></td>
+                    <td><b><%= link_to 'Burn!!', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-floating btn-large waves-effect waves-light red" %></b></td>
                   </tr>
                 <% end %>
               </tbody>

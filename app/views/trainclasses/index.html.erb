@@ -16,15 +16,15 @@
           <% else %>
           <h3>Hi <span data-user-id="<%= current_user.id%>"><%=current_user.name%></span> choose your spot!</h3>
         <% end %>
-        <h5>Available <b class="red-text">TRAINING</b> days of the week!!</h5>
+        <h5 class="light-text">Available <b class="red-text">TRAINING</b> days of the week!!</h5>
       </div>
     </div><!-- -- day selection buttons end -->
 
     <div id="tcs" class="row"><!-- COLLAPSIBLE -->
       <div class="col s10 offset-s1">
-      <h3><%=(@tcgrouped.keys.first+1).strftime("%B %d th")%></h3>
+      <h3 class="light-text"><%=(@tcgrouped.keys.first+1).strftime("%B %d th")%></h3>
           <ul class="collapsible" data-collapsible="accordion">
-            <% @m[1].each do |trainclass| %>
+            <% (@m[1].sort {|a,b| a[1] <=> a[1]}).each do |trainclass| %>
             <li>
               <div class="collapsible-header">
                 <i class="material-icons red-text">toc</i>
@@ -36,9 +36,9 @@
               </div>
               <div class="collapsible-body grey darken-3 col-height">
                 <ul>
-                  <li class="col s3 center-align"><b>Class: <%= trainclass.train_class_type %></b></li>
-                  <li class="col s3 center-align">Quota: <%= trainclass.quota %> / <%= trainclass.capacity %></li>
-                  <li class="col s3 center-align">Coach: <%= trainclass.coach_id %></li><br>
+                  <li class="col s3 center-align">Class: <b><%= trainclass.train_class_type %></b></li>
+                  <li class="col s3 center-align">Quota: <b> <%= trainclass.quota %> / <%= trainclass.capacity %></b></li>
+                  <li class="col s3 center-align">Coach: <b><%= trainclass.coach_id %></b></li><br>
                   <li class="col s3 right"><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "btn-floating btn-large waves-effect waves-light red ", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></li>
                   <li class="center-align"><b>WOD:</b></li>
                 </ul>
@@ -61,8 +61,8 @@
                   <img class="activator" src="images/03.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span>
-                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
+                  <span class="card-title activator grey-text text-darken-4"><%= trainclass.train_class_type %><i class="material-icons right">more_vert</i></span><br>
+                  <span class="activator grey-text text-darken-4"><%= trainclass.datetime.to_s(:time) %></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4"><b><%= trainclass.date.strftime("%d-%m-%Y") %> - <%= trainclass.datetime.to_s(:time) %></b><i class="material-icons right">close</i></span>
@@ -90,8 +90,8 @@
       </div>
     </div>
 
-        <div id="modal<%=(@t[0]+1).strftime("%d")%>" class="modal">
-      <div class="modal-content">
+    <div id="modal<%=(@t[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content grey darken-4">
 
         <div class="row">
           <% @t[1].each do |trainclass| %>
@@ -130,8 +130,8 @@
       </div>
     </div>
 
-        <div id="modal<%=(@w[0]+1).strftime("%d")%>" class="modal">
-      <div class="modal-content">
+    <div id="modal<%=(@w[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content grey darken-4">
 
         <div class="row">
           <% @w[1].each do |trainclass| %>
@@ -170,8 +170,8 @@
       </div>
     </div>
 
-        <div id="modal<%=(@th[0]+1).strftime("%d")%>" class="modal">
-      <div class="modal-content">
+    <div id="modal<%=(@th[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content grey darken-4">
 
         <div class="row">
           <% @th[1].each do |trainclass| %>
@@ -210,8 +210,8 @@
       </div>
     </div>
 
-        <div id="modal<%=(@f[0]+1).strftime("%d")%>" class="modal">
-      <div class="modal-content">
+    <div id="modal<%=(@f[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content grey darken-4">
 
         <div class="row">
           <% @f[1].each do |trainclass| %>
@@ -250,8 +250,8 @@
       </div>
     </div>
 
-        <div id="modal<%=(@s[0]+1).strftime("%d")%>" class="modal">
-      <div class="modal-content">
+    <div id="modal<%=(@s[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content grey darken-4">
 
         <div class="row">
           <% @s[1].each do |trainclass| %>
@@ -290,8 +290,8 @@
       </div>
     </div>
 
-        <div id="modal<%=(@su[0]+1).strftime("%d")%>" class="modal">
-      <div class="modal-content">
+    <div id="modal<%=(@su[0]+1).strftime("%d")%>" class="modal">
+      <div class="modal-content grey darken-4">
 
         <div class="row">
           <% @su[1].each do |trainclass| %>

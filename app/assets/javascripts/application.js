@@ -42,15 +42,9 @@ $(document).on('turbolinks:load', function(){
 	$(document).scroll(function() { 
 	  scroll_start = $(this).scrollTop();
 	  if(scroll_start > offset.top) {
-	      $('.nav').css('background-color', 'rgba(255,255,255,1)');
-	      $('li.top a').css('color', '#000');
-	      $('header #logo').css('color', '#FFF');
-	      $('header #logo:hover').css('color', '#FC3C2A');
+	      $('nav').addClass('nav-scroll');
 	   } else {
-	      $('.nav').css('background-color', 'rgba(255,255,255,0.1)');
-	      $('li.top a').css('color', '#FFF');
-	      $('header #logo').css('color', '#FFF');
-	      $('header #logo:hover').css('color', '#FC3C2A');
+	      $('nav').removeClass('nav-scroll');
 	   }
 	});
 });

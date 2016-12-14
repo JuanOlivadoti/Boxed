@@ -2,7 +2,14 @@
 	.row{
 		margin: 0;
 		p{
-			margin:0;
+			margin:15px 0px 0 0;
 		}
 	}
+}
+
+#my_fit_tracker{
+	position:fixed;
+	overflow-y: scroll;
+	height:70vh;
+	width:100vw;
 }

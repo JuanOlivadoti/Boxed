@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :set_user
 
   def information
-  	@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
+  	@lasttrainclass = Trainclass.where(id: set_user.bookings.last.trainclass_id)
 
 		if @lasttrainclass != nil?
 	  	@lastbook = @lasttrainclass[-1]
@@ -12,23 +12,19 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@my_fit_trackers = MyFitTracker.where(user_id: current_user.id)
+  	@my_fit_trackers = MyFitTracker.where(user_id: set_user.id)
 
   	render "users/my_fit"
   end
 
   def bookings
-  	@bookings = Booking.where(user_id: current_user.id).order(created_at: :desc)
+  	@bookings = Booking.where(user_id: set_user.id).order(created_at: :desc)
 
 		if @bookings == nil?
-  		@lasttrainclass = Trainclass.where(id: current_user.bookings.last.trainclass_id)
+  		@lasttrainclass = Trainclass.where(id: set_user.bookings.last.trainclass_id)
 	  	@lastbook = @lasttrainclass[0]
 		end
   	render "bookings.html.erb"
-  end
-
-  def data
-		render "data.html.erb"
   end
 
 	def add_trainclass
@@ -50,7 +46,7 @@ class UsersController < ApplicationController
 	end
 
 	def athlete_info
-  	@bookings = Booking.where(user_id: current_user.id)
+  	@bookings = Booking.where(user_id: set_user.id)
 
 		unless user
 			render json: { error: "User not found" }, status: 404
@@ -61,7 +57,7 @@ class UsersController < ApplicationController
 	end
 
 	def my_fit_tracker
-		@my_fit_trackers = MyFitTracker.where(user_id: current_user.id)
+		@my_fit_trackers = MyFitTracker.where(user_id: set_user.id)
 
 		render "my_fit"
 	end

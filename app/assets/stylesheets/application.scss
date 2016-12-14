@@ -16,12 +16,19 @@
 
 @import 'materialize';
 
-@import url('https://fonts.googleapis.com/css?family=Bungee|Open+Sans:700|Special+Elite');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Open+Sans:300,400,700|Special+Elite');
 
 html, body, .block {
   height: 100vh;
   margin:0;
-	font-family: 'Abel', sans-serif;
+	font-family: Open Sans;
+	font-variant:uppercase;
+	select{
+		display:block;
+	}
+	.light-text{
+		font-weight: lighter;
+	}
 }
 
 
@@ -66,6 +73,19 @@ header{
 		}
 	}
 	
+	.nav-scroll{
+		background-color: rgba(255,255,255,1);
+		
+		a{
+			color:#000;
+		}
+		
+		a:hover{
+			color: red;
+			background-color: rgba(0,0,0,0.3);
+		}
+	}
+
 	nav{
 		background-color: rgba(255,255,255,0.1);
 		padding:0 12vw;

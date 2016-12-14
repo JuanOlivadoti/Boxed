@@ -10,33 +10,52 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_field :date %>
+<div class="row">
+  <div class="col s10 offset-s1">
+    <div class="row white">
+      <div class="input-field col s6 grey-text text-darken-4">
+        <i class="material-icons prefix red-text">textsms</i>
+        <%= f.label :date %> <br>
+        <%= f.date_field :date %> <br>
+      </div>
+      <div class="input-field col s6 grey-text text-darken-4">
+        <i class="material-icons prefix red-text">textsms</i>
+        <%= f.label :time %> <br>
+        <%= f.time_field :datetime %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.time_select :datetime %>
+</div>
+<div class="row">
+  <div class="col s10 offset-s1">
+    <div class="row white">
+      <div class="input-field col s6 grey-text text-darken-4">
+        <i class="material-icons prefix red-text">textsms</i>
+        <%= f.label :capacity %> <br>
+        <%= f.number_field :capacity, within: 1..15 %>
+      </div>
+      <div class="input-field  field col s6 grey-text text-darken-4">
+        <i class="material-icons prefix red-text">textsms</i>
+        <%= f.label :train_class_type %> <br>
+        <%= f.select :train_class_type, Trainclass.train_class_types.keys %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :capacity %>
-    <%= f.number_field :capacity, within: 1..15 %>
+</div>
+<div class="row">
+  <div class="col s10 offset-s1">
+    <div class="row white">
+      <div class="input-field col s6 grey-text text-darken-4">
+        <i class="material-icons prefix red-text">textsms</i>
+        <%= f.label :coach_id %> <br>
+        <%= f.number_field :coach_id, within: 1..5 %>
+      </div>
+      <div class="input-field  field col s6 grey-text text-darken-4">
+        <i class="material-icons prefix red-text">textsms</i>
+        <button class="btn waves-effect waves-light red"><%= f.submit%></button> 
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :train_class_type %>
-    <%= f.select :train_class_type, Trainclass.train_class_types.keys %>
-  </div>
-
-  <div class="field">
-    <%= f.label :coach_id %>
-    <%= f.number_field :coach_id, within: 1..5 %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

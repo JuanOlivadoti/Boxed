@@ -15,11 +15,11 @@ $(document).on('turbolinks:load', function(){
 		var um = $('#um').val();
 		var exty = $('#exercise_type').val();
 
-		console.log(uId);
-		console.log(exer);
-		console.log(valu);
-		console.log(um);
-		console.log(exty);
+		// console.log(uId);
+		// console.log(exer);
+		// console.log(valu);
+		// console.log(um);
+		// console.log(exty);
 
 		$.ajax ({
 			type: "POST",
@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function(){
 		console.log("created!");
 		console.log(response);
 		// debugger
-		var crea 	= response.created_at;
+		var crea 	= response.created_at.substring(0, 10);
 		var exer 	= response.exercise;
 		var valu 	= response.value;
 		var um 		= response.um;
@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function(){
 		console.log(crea);
 
 		var newtrack = '<ul id="exe-list" data-t="'+response.id+'" class="collection">' +
-			  '<li class="collection-item indigo darken-4">' +
+			  '<li class="collection-item red darken-3">' +
 			  	'<div class="row">' +
 			  		'<div class="col s2">' +
 							'<p>'+crea+'</p>' +
@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function(){
 							'<p>'+exty+'</p>' +
 			  		'</div>' +
 			  		'<div class="col s1">' +
-							'<button id="tracker-destroy"><a href="/users/${response.user_id}/my_fit_tracker" class="clear-link">delete</a><i class="tiny material-icons">delete</i></button>' +
+							'<a data-confirm="Are you sure?" class="btn-floating btn-large waves-effect waves-light red-text text-darken-3 white" rel="nofollow" data-method="delete" href="/users/1/my_fit_tracker?id='+response.id+'">BURN</a>' +
 			  		'</div>' +
 			  	'</div>' +
 			  '</li>' +
