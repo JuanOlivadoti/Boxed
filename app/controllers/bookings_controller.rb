@@ -17,18 +17,17 @@ class BookingsController < ApplicationController
     @trainid = params[:id]
 
     @tc = Trainclass.find_by(id: @trainid)
+    @bk = Booking.where(user_id: current_user.id)
 
-    if @tc.quota < (@tc.capacity + 1)
+    if @bk.where(trainclass_id: @tc.id) === []
       @booking = Booking.create(user_id: @userid, trainclass_id: @trainid)
       @tc.update(quota: (@tc.quota + 1))
 
       redirect_to "/users/"+@userid+"/athlete_info/bookings"
-
     else
-      redirect_to trainclasses_path, notice: "The quota is full"
-
+      redirect_to trainclasses_path, notice: "You have booked this class"
     end
-    
+
   end
 
   def destroy

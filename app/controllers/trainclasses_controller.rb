@@ -3,7 +3,7 @@ class TrainclassesController < ApplicationController
   respond_to :json
   def index
 
-    @tc = Trainclass.all.order(updated_at: :asc)
+    @tc = Trainclass.all.order(id: :asc)
     @tcgrouped = @tc.group_by_day(&:date)
 
     mon = Hash[*@tcgrouped.to_a.at(0)]

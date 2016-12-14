@@ -37,7 +37,7 @@
               <div class="collapsible-body grey darken-3 col-height">
                 <ul>
                   <li class="col s3 center-align">Class: <b><%= trainclass.train_class_type %></b></li>
-                  <li class="col s3 center-align">Quota: <b> <%= trainclass.quota %> / <%= trainclass.capacity %></b></li>
+                  <li class="col s3 center-align" data-qt="<%= trainclass.quota %>" data-ct="<%= trainclass.capacity %>" >Quota: <b> <%= trainclass.quota %> / <%= trainclass.capacity %></b></li>
                   <li class="col s3 center-align">Coach: <b><%= trainclass.coach_id %></b></li><br>
                   <li class="col s3 right"><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "btn-floating btn-large waves-effect waves-light red ", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></li>
                   <li class="center-align"><b>WOD:</b></li>
