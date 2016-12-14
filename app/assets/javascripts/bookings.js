@@ -36,5 +36,4 @@ $(document).on('turbolinks:load', function(){
 		$("#booking-" + bId).remove();
 	}
 
-
 });

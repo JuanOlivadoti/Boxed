@@ -22,7 +22,7 @@
 
     <div id="tcs" class="row"><!-- COLLAPSIBLE -->
       <div class="col s10 offset-s1">
-      <h3 class="light-text"><%=(@tcgrouped.keys.first+1).strftime("%B %d th")%></h3>
+        <h3 class="light-text"><%=(@tcgrouped.keys.first+1).strftime("%B %d th")%></h3>
           <ul class="collapsible" data-collapsible="accordion">
             <% (@m[1].sort {|a,b| a[1] <=> a[1]}).each do |trainclass| %>
             <li>
@@ -39,7 +39,12 @@
                   <li class="col s3 center-align">Class: <b><%= trainclass.train_class_type %></b></li>
                   <li class="col s3 center-align" data-qt="<%= trainclass.quota %>" data-ct="<%= trainclass.capacity %>" >Quota: <b> <%= trainclass.quota %> / <%= trainclass.capacity %></b></li>
                   <li class="col s3 center-align">Coach: <b><%= trainclass.coach_id %></b></li><br>
-                  <li class="col s3 right"><%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "btn-floating btn-large waves-effect waves-light red ", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></li>
+                  <li class="col s3 right">
+                  <% if  trainclass.quota <= trainclass.capacity %> 
+                    <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "btn-floating btn-large waves-effect waves-light red ", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></li>
+                  <% else %>
+                    <%= link_to 'Book', booking_create_path(current_user.id, trainclass.id), {method: :post, id: trainclass.id, class: "btn-floating btn-large waves-effect waves-light red disabled", "data-t-id": trainclass.id, "data-u-id": current_user.id } %></li>
+                  <% end %>
                   <li class="center-align"><b>WOD:</b></li>
                 </ul>
               </div>
