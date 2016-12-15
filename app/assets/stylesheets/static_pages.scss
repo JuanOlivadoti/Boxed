@@ -1,23 +1,47 @@
-$font-robo:				Roboto;
-$boxed-red: #F44336;
+$font-robo:		Roboto;
+$boxed-red: 	#F44336;
+$teal-op:			rgba(40,180,180, 0.2);
+$teal:				rgb(40, 180, 180);
+$orange-op:		rgba(255,170,0, 0.2);
+$orange:			rgb(255,170,0);
+$red: 				#D50000;
+$red-op:			rgba($red, 1);
 
 
 
 // HOME PAGE
 #para2{
-	height:60vh;
+	height:90vh;
+	border-top:1vh dashed $red-op;
+	border-bottom:1vh dashed $red-op;
+	background-color: rgba(0,0,0, 1);
+	z-index:0;
+
+	iframe{
+		width:200vw;
+		height: 150vh;
+		position:absolute;
+		top:-25vh;
+		left:-50vw;
+		z-index: 1;
+	}
 
 	#middle-section{
-		background-color:rgba(244,67,54, 0.8);
+		background-color:rgba(244,67,54, 0.4);
 		position:relative;
 		top:5vh;
 		height:10vh;
+		z-index: 5;
 	}
 	#exp{
-		background-color:rgba(244,67,54, 0.8);
+		background-color:rgba(244,67,54, 0.4);
 		position:relative;
 		top:5vh;
-		height: 35vh;
+		height: 42vh;
+		z-index: 5;
+	}
+	#middle-section, #exp{
+		text-shadow: 0 0 8px #000;
 	}
 	.sep-x{
 		position:relative;
@@ -29,6 +53,51 @@ $boxed-red: #F44336;
 		position:relative;
 		top:25vh;
 		z-index:500;
+	}
+
+	.col{
+		margin:0;
+		padding:0;
+	}
+
+	.card{
+		overflow: hidden;
+		margin:0;
+		img{
+			position:absolute;
+			display:block;
+			height:102%;
+			z-index: 1;
+			filter: grayscale(100%);
+		}
+		#orange-content{
+			background-color:$orange-op;
+		}
+		#teal-content{
+			background-color:$teal-op;
+			.teal-text{
+				color:$teal;
+			}
+		}
+
+		#orange-content, #teal-content{
+			height: 100%;
+			width: 100%;
+			position:relative;
+			display: block;
+			z-index: 50;
+			font-style: italic;
+			.bold{
+				font-size:25px;
+				font-weight: 700;
+			}
+			.top-separ{
+				padding-top:25px;
+			}
+			.thin{
+				font-weight: 300;
+			}
+		}
 	}
 }
 
@@ -58,11 +127,9 @@ $boxed-red: #F44336;
 .info1{
 	background: url("/images/info.jpg") center center no-repeat;
 }
-
 .book1{
 	background: url("/images/book.jpg") center center no-repeat;
 }
-
 .trainc1{
 	background: url("/images/trainc.jpg") center center no-repeat;
 }

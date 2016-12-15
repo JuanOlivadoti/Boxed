@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 
   def bookings
   	@bookings = Booking.where(user_id: set_user.id).order(created_at: :desc)
+  	# binding.pry
+  	@trainclasses = 
 
 		if @bookings == nil?
   		@lasttrainclass = Trainclass.where(id: set_user.bookings.last.trainclass_id)
@@ -53,7 +55,6 @@ class UsersController < ApplicationController
 			return		
 		end
 		render "athlete_info.html.erb"
-		# render json: {user: user, trainclasses: user.trainclasses}
 	end
 
 	def my_fit_tracker

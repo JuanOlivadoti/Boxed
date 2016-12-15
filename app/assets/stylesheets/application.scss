@@ -126,28 +126,47 @@ header{
 #logo{		
 	font-family: 'Bungee', cursive;
 	font-size: 100px;
-	width: 30%;
 	float: left;
 	padding-top: 5px;
 	color: #FFF;
-// 	text-shadow: 8px 8px 0 #000,
-//     -8px 8px 0 #000,
-//     8px -8px 0 #000,
-//     -8px -8px 0 #000;
-//   transition: font-weight 0.5s ease;
+	#logo-img-1{
+		display: inline-block;
+		position:relative;
+		height:100px;
+		width:100px;
+		left: 0;
+    bottom: 0;
+    min-width: 0%;
+    min-height: 0%;
+    transform: translateX(0%);
+    margin:-10px;
+	}
 }
 
 #logo-styling{		
 	font-family: 'Bungee', cursive;
-	font-size: 40px;
-	width: 30%;
+	font-size: 60px;
+	width: 45%;
 	padding-top: 5px;
 	color: #FFF;
-	text-shadow: 4px 4px 0 #000,
-    -4px 4px 0 #000,
-    4px -4px 0 #000,
-    -4px -4px 0 #000;
+	// text-shadow: 4px 4px 0 #000,
+ //    -4px 4px 0 #000,
+ //    4px -4px 0 #000,
+ //    -4px -4px 0 #000;
   transition: font-weight 0.5s ease;
+
+  #logo-img-1{
+		display: inline-block;
+		position:relative;
+		height:60px;
+		width: 60px;
+		left: 0;
+    bottom: 0;
+    min-width: 0%;
+    min-height: 0%;
+    transform: translateX(0%);
+    margin:-10px;
+	}
 }
 
 .fullwidth{
@@ -286,4 +305,14 @@ h2.header{
 .modal{
 	width:80vw;
 	// height:90vh;
+}
+
+select{
+	background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #fff;
+  border-bottom: 1px solid #999;
+  border-radius: 2px;
+  height: 3rem;
 }

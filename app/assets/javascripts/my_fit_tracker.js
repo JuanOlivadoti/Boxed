@@ -11,11 +11,13 @@ $(document).on('turbolinks:load', function(){
 
 	$('#submit').click(function(event){
 		event.preventDefault();
-		var uId = $('#submit').data('user-id');
-		var exer = $('#exercise').val();
-		var valu = $('#value').val();
-		var um = $('#um').val();
-		var exty = $('#exercise_type option:selected').val();
+		var uId 	= $('#submit').data('user-id');
+		var exer 	= $('#exercise').val();
+		var valu 	= $('#value').val();
+		var um 		= $('#um').val();
+		var exty 	= $('#exercise_type').val();
+
+				console.log(exty);
 
 		$.ajax ({
 			type: "POST",
@@ -43,7 +45,10 @@ $(document).on('turbolinks:load', function(){
 		var um 		= response.um;
 		var exty 	= response.exercise_type;
 
-		console.log(crea);
+		// console.log(crea);
+
+		console.log(exty);
+
 
 		var newtrack = '<ul id="exe-list" data-t="'+response.id+'" class="collection">' +
 			  '<li class="collection-item red darken-3">' +
@@ -70,7 +75,7 @@ $(document).on('turbolinks:load', function(){
 			  '</li>' +
 			'</ul>';
 
-		console.log(newtrack);
+		// console.log(newtrack);
 		$('#tracks').prepend(newtrack);
 
 	}

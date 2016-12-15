@@ -8,8 +8,8 @@
           <table class="collection with-header">
             <thead>
               <tr class="collection-header">
-                <th>Trainclass id</th>
-                <th>Trainclass number</th>
+                <th>Trainclass Date</th>
+                <th>Trainclass Time</th>
                 <th>Class Type</th>
                 <th></th>
               </tr>
@@ -20,9 +20,13 @@
               <tbody>
                 <% @bookings.each do |booking| %>
                   <tr id="booking-<%= booking.id %>" class="collection-item"  >
-                    <td><%= booking.id %></td>
-                    <td><%= booking.trainclass_id %></td>
-                    <td><%= booking.trainclass_id %></td>
+
+                    <% tcs  = booking.trainclass_id %>
+                    <% tc   = Trainclass.find_by(id: tcs) %>
+
+                    <td><%= tc.date.strftime("%m/%d/%Y") %></td>
+                    <td><%= tc.datetime.strftime("%H:%M") %></td>
+                    <td><%= tc.train_class_type %></td>
                   
                     <td><b><%= link_to 'Burn!!', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?'},id: "burn", class: "btn-floating btn-large waves-effect waves-light red" %></b></td>
                   </tr>
