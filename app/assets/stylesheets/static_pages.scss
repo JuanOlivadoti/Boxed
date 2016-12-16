@@ -222,3 +222,11 @@ $red-op:			rgba($red, 1);
 		margin-top:25%;
 	}
 }
+
+// BOOKING CUSTOM
+
+#booking-index{
+	overflow-y:scroll;
+	max-height:88vh;
+	max-width:96vw;
+}
