@@ -28,24 +28,15 @@ $red-op:			rgba($red, 1);
 
 	#middle-section{
 		background-color:rgba(244,67,54, 0.4);
-		position:relative;
-		top:5vh;
-		height:10vh;
-		z-index: 5;
-	}
-	#exp{
-		background-color:rgba(244,67,54, 0.4);
-		position:relative;
-		top:5vh;
-		height: 42vh;
-		z-index: 5;
-	}
-	#middle-section, #exp{
 		text-shadow: 0 0 8px #000;
+		position:relative;
+		height:100%;
+		width: 100%;
+		z-index: 5;
 	}
 	.sep-x{
 		position:relative;
-		top:40px;
+		top:20px;
 	}
 }
 #para3{
@@ -192,4 +183,42 @@ $red-op:			rgba($red, 1);
 }
 .btn-center{
 	margin:10px;
+}
+
+// ABOUT PAGE CUSTOM
+
+#slides{
+	h1,h3{
+		text-shadow: 2px 0 0 #000,
+								-2px 0 0 #000,
+								0 2px 0 #000,
+								0 -2px 0 #000,
+								2px 2px #000,
+								-2px -2px 0 #000,
+								2px -2px 0 #000,
+								-2px 2px 0 #000;
+		font-style: italic;
+		z-index: 100;
+		position:relative;
+		background-color:rgba(0,0,0, 0.5);
+		border-radius:5px;
+	}
+	#mobile-now{
+		width: 50vw;
+		height:120vh;
+		background-size:contain;
+		background:no-repeat;
+		position:absolute;
+		z-index: 0;
+		overflow: visible;
+		top:0;
+		left:-20vw;
+	}
+	.stack{
+		background:no-repeat;
+		background-size:contain;
+	}
+	.st1{
+		margin-top:25%;
+	}
 }

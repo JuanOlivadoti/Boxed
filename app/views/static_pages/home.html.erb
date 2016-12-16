@@ -16,21 +16,21 @@
 </section>
 <section id="para2" class="parallax-container">
   <div class="parallax">
-    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/SuPLxQD4akQ?autoplay=1" frameborder="0"  allowfullscreen></iframe>
-    <div class="row">
-      <div id="middle-section"  class="row container">
-        <div class="col s8 offset-s2">
-          <h2 class="header">¿What is <span id="logo-styling">B<img id="logo-img-1" src="/images/B2.png" alt="">XED</span>?</h2>
-        </div>
+    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/SuPLxQD4akQ?rel=0&autoplay=1&showinfo=0&controls=0&loop=1" frameborder="0"  allowfullscreen></iframe>
+    <div id="middle-section"  class="row container">
+      <div class="col s12">
+        <h2 class="header">¿Qué es <span id="logo-styling">B<img id="logo-img-1" src="/images/B2.png" alt="">XED</span>?</h2>
       </div>
-      <div id="exp" class="row container white-text">
-        <div class="col s5 offset-s1">
-          <p class="flow-text right-align text-p italic sep-x"><b>BOXED</b> es una aplicación para gestionar las reservas de los gimnasios de clases colectivas.</p>
-          <p class="flow-text right-align text-p italic sep-x italic">El usuario además podrá llevar un seguimiento de su trabajo con el apartado <b class="orange-text">MY TRACKER</b></p>
+      <div class="col s5 offset-s1">
+        <h2 class="flow-text right-align white-text flow-text italic sep-x"><b>BOXED</b> es una aplicación para gestionar las reservas de los gimnasios de clases colectivas.</h2>
+        <div id="Tracker" class="col s12 sep-x">
+       
+      </div>
+      </div>
+      <div class="col s5">
+        <div id="Class" class="col s12">
         </div>
-        <div id="reser" class="col s4 offset-s1 sep-x">
-         
-        </div>
+        <p class="flow-text right-align  italic sep-x italic">El usuario además podrá llevar un seguimiento de su trabajo con el apartado <b class="orange-text">MY TRACKER</b></p>
       </div>
     </div>
   </div>
@@ -69,11 +69,13 @@
   
   <% if user_signed_in? -%>
     <ul">
-      <li><%= link_to 'Account', edit_user_registration_path %></li>
+      <li><%= link_to 'Account' , edit_user_registration_path %></li>
       <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+      <li><%= link_to 'About' , static_pages_help_path %></li>
     </ul>
   <% else -%>
     <p><%= link_to 'Admin login', new_user_session_path %></p>
+    <li><%= link_to 'About' , static_pages_help_path %></li>
   <% end -%>
 
 </footer>

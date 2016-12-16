@@ -31,10 +31,25 @@ $(document).on('turbolinks:load', function(){
     selectYears: 80 
   });
 
-		// =============== PARALLAX
+	// =============== FULL WIDTH SLIDER ABOUT
+  $('.slider').slider({full_width: true});
+
+  	// Pause slider
+  	$('#pause').click(function(){
+  		$('.slider').slider('pause');
+  	});
+		
+		// Start slider
+		$('.slider').slider('start');
+		// Next slide
+		$('.slider').slider('next');
+		// Previous slide
+		$('.slider').slider('prev');
+
+	// =============== PARALLAX
   $('.parallax').parallax();
 
-	// =============== DATE PICKER
+	// =============== NAVBAR JS
 	var scroll_start = 0;
 	var startchange = $('.nav');
 	var offset = startchange.offset();

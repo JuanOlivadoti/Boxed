@@ -279,12 +279,19 @@ h2.header{
 .text-p{
 	margin:0
 }
-#reser{
-	background: url('/images/RESER.png') left top no-repeat;
-	background-size: 100% auto ;
-	height:200px;
+#Tracker{
+	background: url('/images/fittracker.png') center center no-repeat;
 }
-
+#Class{
+	background: url('/images/clases.png') center center no-repeat;
+}
+#Tracker, #Class{
+	background-size: contain;
+	height:250px;
+	width:100%;
+	margin-top:50px;
+	margin-bottom:50px;
+}
 .square{
   margin: 5px;
   padding: 6px;
