@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 	before_action :set_user
 
+	def index
+		@users = User.all
+	end
+	
   def information
   	@lasttrainclass = Trainclass.where(id: set_user.bookings.last.trainclass_id)
 
@@ -19,7 +23,6 @@ class UsersController < ApplicationController
 
   def bookings
   	@bookings = Booking.where(user_id: set_user.id).order(created_at: :desc)
-  	# binding.pry
   	@trainclasses = 
 
 		if @bookings == nil?
@@ -40,7 +43,6 @@ class UsersController < ApplicationController
 			render json: { error: "trainclass not found" }, status: 404
 			return	
 		end
-		# binding.pry
 		user.trainclasses.push(trainclass)
 		user.save
 

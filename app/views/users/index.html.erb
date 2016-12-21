@@ -1,0 +1,23 @@
+<section class="fullwidth trainclass trainc1">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+
+    <div class="row"><!-- DAY SELECTION BUTTONS -->
+      <div class="col s6">
+        <h1 id="logo-styling">Tra<span class="red-text">in</span>classes</h1>
+      </div>
+			<div class="col s6">
+				<ul>
+					<% @users.each do |user| %>
+						<li> <%= user.name %> </li>
+						<li> <%= user.email %> </li>
+						<li> <%= user.bday %> </li>
+						<li> <%= user.dni %> </li>
+						<li> <%= user.medcert %> </li>
+						<li> <%= user.user_type %> </li>
+					<%end%>
+				</ul>
+			</div>
+  </div>
+
+</section>

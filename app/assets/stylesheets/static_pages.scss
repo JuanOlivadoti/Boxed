@@ -8,7 +8,6 @@ $red: 				#D50000;
 $red-op:			rgba($red, 1);
 
 
-
 // HOME PAGE
 #para2{
 	height:90vh;
@@ -100,7 +99,27 @@ $red-op:			rgba($red, 1);
 	padding-top:70px;
 }
 
-// STATIC PAGES INFORMATION 
+footer ul{
+	margin: 0;
+	li{
+		font: italic 15px/1.4 $font-robo;
+		text-shadow:2px 2px 2px #666;
+	}
+}
+// NAVBAR MOBILE
+
+.side-nav-mobile {
+    position: fixed;
+    width: 100%;
+    li{
+			padding: 4vh;
+			a{
+				font-size: 6em;
+			}
+    }
+}
+
+// STATIC PAGES USERS/INFORMATION 
 
 #info{
 	background-size: cover;
@@ -110,16 +129,13 @@ $red-op:			rgba($red, 1);
 
   }
 
-  h5{
-  	font: light 25px/1.4 $font-robo;
-  }
 }
 
 .info1{
 	background: url("/images/info.jpg") center center no-repeat;
 }
 .book1{
-	background: url("/images/book.jpg") center center no-repeat;
+	background: url("/images/4.jpg") center center no-repeat;
 }
 .trainc1{
 	background: url("/images/trainc.jpg") center center no-repeat;
@@ -132,7 +148,7 @@ $red-op:			rgba($red, 1);
 }
 
 
-// DEVISE CUSTOM 
+// DEVISE USERS CUSTOM 
 
 .dev-view{
 	background: url("/images/push.jpg") center center no-repeat;	
@@ -153,6 +169,10 @@ $red-op:			rgba($red, 1);
 			color: #424242 !important;
 			font-weight: 300;
 			font-size: 15px;
+			h5{
+				font-weight: 300;
+				font-size: 1rem;
+			}
 			label{
 				color: #424242 !important;
 				font-size: 15px;
@@ -185,18 +205,18 @@ $red-op:			rgba($red, 1);
 	margin:10px;
 }
 
-// ABOUT PAGE CUSTOM
+// ABOUT PAGE
 
 #slides{
 	h1,h3{
-		text-shadow: 2px 0 0 #000,
-								-2px 0 0 #000,
-								0 2px 0 #000,
-								0 -2px 0 #000,
-								2px 2px #000,
-								-2px -2px 0 #000,
-								2px -2px 0 #000,
-								-2px 2px 0 #000;
+		text-shadow: 0 0 5px #000;
+								// -2px 0 0 #000,
+								// 0 2px 0 #000,
+								// 0 -2px 0 #000,
+								// 2px 2px #000,
+								// -2px -2px 0 #000,
+								// 2px -2px 0 #000,
+								// -2px 2px 0 #000;
 		font-style: italic;
 		z-index: 100;
 		position:relative;
@@ -223,7 +243,7 @@ $red-op:			rgba($red, 1);
 	}
 }
 
-// BOOKING CUSTOM
+// BOOKING
 
 #booking-index{
 	overflow-y:scroll;

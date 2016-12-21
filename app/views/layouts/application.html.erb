@@ -12,11 +12,13 @@
   <body>
   	<header class="row" role="navigation">
 	  	<nav class="nav">
-		    <div class="container">
+		    <div class="container nav-wrapper">
 		    	<div id="row logo">
-		    		<a href="/" id="logo">B<img id="logo-img" src="/images/B2.png" alt="">XED</a>
+		    		<a href="/" id="logo" class="media-logo">B<img id="logo-img" src="/images/B2.png" alt="">XED</a>
 		    	</div>
 		        <% if user_signed_in? -%>
+		        	<a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+
 		          <ul id="nav-mobile" class="right hide-on-med-and-down">
 		            <li class="top"><a class="dropdown-button italic" href="#!" data-activates="dropdown1"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
 		            <li class="top"><%= link_to 'Classes', trainclasses_path, class: "italic" %></li>
@@ -28,6 +30,15 @@
 							  <li class="divider"></li>
 			          <li><a href="/users/<%=current_user.id%>/athlete_info/my_fit" class="red-text text-darken-3 italic">My Fit tracker</a></li>
 							</ul>
+
+							<ul class="side-nav-mobile side-nav" id="mobile-demo">
+								<li><a href="/users/<%=current_user.id%>/athlete_info/my_fit" class="red-text text-darken-3 italic">My Fit tracker</a></li>
+								<li><a href="/users/<%=current_user.id%>/athlete_info/bookings" class="red-text text-darken-3 italic">Bookings</a></li>
+		            <li><a href="/users/<%=current_user.id%>/athlete_info/information" class="red-text text-darken-3 italic">Information</a></li>
+		            <li><%= link_to 'Classes', trainclasses_path, class: "italic red-text text-darken-3" %></li>
+		            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "italic red-text text-darken-3"  %></li>
+		          </ul>
+
 		        <% else -%>
 		          <ul class="right hide-on-med-and-down">
 		          	<li class="blue-text text-darken-4">Log in or sign up to enter our app</li>
